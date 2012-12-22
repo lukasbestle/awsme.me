@@ -1,0 +1,9 @@
+Title: Timothy Achumba - Product Designer
+----
+Author: Timothy Achumba
+----
+Description: Thoughts scribbled down in pixels
+----
+Keywords: kirby, cms, kirbycms, php, filesystem
+----
+Copyright: © 20012-(date: Year) (link: http://bastianallgeier.com text: Bastian Allgeier)

@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Rounded';
+    src: url('../fonts/rounded/rndlight.eot');
+    src: url('../fonts/rounded/rndlight.eot?iefix') format('eot'),
+         url('../fonts/rounded/rndlight.woff') format('woff'),
+         url('../fonts/rounded/rndlight.ttf') format('truetype'),
+         url('../fonts/rounded/rndlight.svg#webfonthOIcM5wm') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded';
+    src: url('../fonts/rounded/rndlightita.eot');
+    src: url('../fonts/rounded/rndlightita.eot?iefix') format('eot'),
+         url('../fonts/rounded/rndlightita.woff') format('woff'),
+         url('../fonts/rounded/rndlightita.ttf') format('truetype'),
+         url('../fonts/rounded/rndlightita.svg#webfonthOIcM5wm') format('svg');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Rounded';
+    src: url('../fonts/rounded/rndbook.eot');
+    src: url('../fonts/rounded/rndbook.eot?iefix') format('eot'),
+         url('../fonts/rounded/rndbook.woff') format('woff'),
+         url('../fonts/rounded/rndbook.ttf') format('truetype'),
+         url('../fonts/rounded/rndbook.svg#webfonthOIcM5wm') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded';
+    src: url('../fonts/rounded/rndbookita.eot');
+    src: url('../fonts/rounded/rndbookita.eot?iefix') format('eot'),
+         url('../fonts/rounded/rndbookita.woff') format('woff'),
+         url('../fonts/rounded/rndbookita.ttf') format('truetype'),
+         url('../fonts/rounded/rndbookita.svg#webfonthOIcM5wm') format('svg');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Rounded';
+    src: url('../fonts/rounded/rndmedium.eot');
+    src: url('../fonts/rounded/rndmedium.eot?iefix') format('eot'),
+         url('../fonts/rounded/rndmedium.woff') format('woff'),
+         url('../fonts/rounded/rndmedium.ttf') format('truetype'),
+         url('../fonts/rounded/rndmedium.svg#webfonthOIcM5wm') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded';
+    src: url('../fonts/rounded/rndmediumita.eot');
+    src: url('../fonts/rounded/rndmediumita.eot?iefix') format('eot'),
+         url('../fonts/rounded/rndmediumita.woff') format('woff'),
+         url('../fonts/rounded/rndmediumita.ttf') format('truetype'),
+         url('../fonts/rounded/rndmediumita.svg#webfonthOIcM5wm') format('svg');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Rounded';
+    src: url('../fonts/rounded/rndbold.eot');
+    src: url('../fonts/rounded/rndbold.eot?iefix') format('eot'),
+         url('../fonts/rounded/rndbold.woff') format('woff'),
+         url('../fonts/rounded/rndbold.ttf') format('truetype'),
+         url('../fonts/rounded/rndbold.svg#webfonthOIcM5wm') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded';
+    src: url('../fonts/rounded/rndboldita.eot');
+    src: url('../fonts/rounded/rndboldita.eot?iefix') format('eot'),
+         url('../fonts/rounded/rndboldita.woff') format('woff'),
+         url('../fonts/rounded/rndboldita.ttf') format('truetype'),
+         url('../fonts/rounded/rndboldita.svg#webfonthOIcM5wm') format('svg');
+    font-weight: 800;
+    font-style: italic;
+}
