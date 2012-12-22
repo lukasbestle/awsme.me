@@ -5,7 +5,7 @@ Version: 1.0
 */
 
 body  {
-  background: #a64e39;
+  background: #d34a0f;
   color: rgba(255,255,255,.8);
   font-family: "Gotham Rounded";
   padding: 120px 0 0 100px;
@@ -38,4 +38,56 @@ header  {
       font-weight: 500;
       line-height: 45px
     }
+
+.scribble-wrapper {
+  margin: 50px 0 0 185px;
+}
+
+  .scribble-wrapper h2 {
+    font-size: 27px;
+    color: rgba(255,255,255,.5);
+    font-weight: 100;
+  }
+
+  .scribbles  {
+    margin: 20px 0 0 0;
+    font-size: 20px
+  }
+
+    .scribble {
+      height: 38px;
+      margin: 0 0 13px 0;
+    }
+
+      .scribble-date  {
+        position: absolute;
+        margin: 0 0 0 -80px;
+        color: rgba(255,255,255,0.66);
+      }
+
+      .scribble-title {
+        padding: 10px 15px 8px 15px;
+        background: rgba(0,0,0,0.25);
+        color: rgba(255,255,255,0.66);
+        text-decoration: none;
+        -webkit-border-radius: 4px;
+        -webkit-transition: all 0.2s linear;
+      }
+
+        .scribble-title:hover {
+          background: rgba(0,0,0,0.5);
+          color: rgba(255,255,255,0.8);
+        }
+
+        .scribble-title:hover + .scribble-word-count {
+          opacity: 1;
+        }
+
+      .scribble-word-count  {
+        font-size: 15px;
+        color: rgba(255,255,255,0.22);
+        padding: 0 0 0 15px;
+        opacity: 0;
+        -webkit-transition: all 0.2s linear;
+      }
 
