@@ -1,34 +1,53 @@
 $('body').delay(500).fadeIn(1000);
 
+// Random Phrase Generator
 
-$(function () {
-
-  // Random Phrase Generator
-
-  var phrases = [
-    'I go by the name<br/><strong>Timothy.</strong>', // Force this one to go first.
-    'I design interfaces at<br/><strong><a href="http://6wunderkinder.com">6Wunderkinder</a>.</strong>',
-    'I play a lot on<br/><strong><a class="dribbble" href="http://dribbble.com/iam_timm">dribbble</a>.</strong>',
-    'I write a bunch of<br/>140 character <strong><a class="twitter" href="http://twitter.com/iam_timm">posts</a>.</strong>',
-    'I take blurry<br/>filtered <strong><a class="instagram" href="http://instragram.com/iam_timm">photos</a>.</strong>',
-    'I listen to music<br/>on <strong><a class="spotify" href="http://open.spotify.com/user/thech053none">Spotify</a>.</strong>',
-    'I make mixes on<br/><strong><a class="designersmx" href="http://designers.mx/member/profile/iam_timm/mixes">Designers.MX</a>.</strong>'
-  ];
+var phrases = [
+  'I go by the name<br/><strong>Timothy.</strong>', // Force this one to go first.
+  'I design interfaces at<br/><strong><a href="http://6wunderkinder.com">6Wunderkinder</a>.</strong>',
+  'I play a lot on<br/><strong><a class="dribbble" href="http://dribbble.com/iam_timm">dribbble</a>.</strong>',
+  'I write a bunch of<br/>140 character <strong><a class="twitter" href="http://twitter.com/iam_timm">posts</a>.</strong>',
+  'I take blurry<br/>filtered <strong><a class="instagram" href="http://instragram.com/iam_timm">photos</a>.</strong>',
+  'I listen to music<br/>on <strong><a class="spotify" href="http://open.spotify.com/user/thech053none">Spotify</a>.</strong>',
+  'I make mixes on<br/><strong><a class="designersmx" href="http://designers.mx/member/profile/iam_timm/mixes">Designers.MX</a>.</strong>'
+];
 
 
-  var stack = [];
-  var delay = 8000;
-  var limit = 1; // change probability, 1-10
-  var last;
+var stack = [];
+var delay = 8000;
+var limit = 1; // change probability, 1-10
+var last;
 
 
-  function getPhrase () {
+function getPhrase (index) {
 
-    if (!stack.length) {
-      stack = [].concat(phrases);
+  var next;
+
+  if (!stack.length) {
+    stack = [].concat(phrases);
+  }
+
+  // we can't just check for falsy values here,
+  // since 0 is falsy but still a valid index
+  if (index !== undefined) {
+    
+    // if we have an index, try to select that one
+    next = stack[index];
+
+    if (next) {
+
+      // if we got a result from the phrases, remove it
+      stack.splice(index, 1);
+      return next;
     }
-
-    var next = stack.pop();
+    else {
+      
+      // if there was no string at that index, get a random one
+      return getPhrase();
+    }
+  }
+  else {
+    next = stack.pop();
 
     if (next === last) {
       return getPhrase();
@@ -47,34 +66,39 @@ $(function () {
       return getPhrase();
     }
   }
+}
 
-  function update () {
+function update (index) {
 
+  var directions = [
+    'bounceInUp',
+    'bounceInDown'
+  ];
 
-    var directions = [
-      'bounceInUp',
-      'bounceInDown'
-    ];
+  var direction = Math.floor(Math.random()*directions.length);
 
-    var direction = Math.floor(Math.random()*directions.length);
+  $('.phrase').removeClass('bounceInUp');
+  $('.phrase').removeClass('bounceInDown');
 
-    $('.phrase').removeClass('bounceInUp');
-    $('.phrase').removeClass('bounceInDown');
-    setTimeout(function () {
-			$('.phrase').addClass(directions[direction]);
+  setTimeout(function () {
+    $('.phrase').addClass(directions[direction]);
+  }, 0);
 
-		}, 0);
+  setTimeout(function () {
+    $('.phrase').html(getPhrase(index)).fadeIn(500);
+  }, 100);
+}
 
-		setTimeout(function () {
-      $('.phrase').html(getPhrase()).fadeIn(500);
+// the bootstrap method, should show first quote
+// and then schedule the random updates
+function init () {
 
-		}, 100);
+  // pass in 0 as index, to grab the first string
+  update(0);
 
-  }
-
+  // and schedule the updates
   setInterval(update, delay);
-  update();
+}
 
-});
-
-
+// run the bootstrap initializer when dom is ready
+$(init);
