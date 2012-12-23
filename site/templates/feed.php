@@ -1,9 +1,9 @@
 <?php
 
-$articles = $pages->find('blog')->children()->visible()->flip()->limit(10);
+$articles = $pages->find('scribbles')->children()->visible()->flip()->limit(10);
 
 snippet('feed', array(
-  'link'  => url('blog'),
+  'link'  => url('scribbles'),
   'items' => $articles,
   'descriptionField'  => 'text',
   'descriptionLength' => 300
