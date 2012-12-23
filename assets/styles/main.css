@@ -9,10 +9,15 @@ body  {
   color: rgba(255,255,255,.8);
   font-family: "Rounded", sans-serif;
   padding: 120px 0 100px 100px;
+  display: none;
 }
 
 header  {
   position: relative;
+}
+
+.hidden {
+  display: none;
 }
 
   .avatar  {
@@ -28,7 +33,7 @@ header  {
   }
 
     .avatar:hover {
-      opacity: .8
+      opacity: .6
     }
 
   header h1 {
@@ -39,9 +44,13 @@ header  {
   }
 
     header h1 strong  {
-      display: block;
       font-weight: 600;
       line-height: 45px
+    }
+
+    header h1 a  {
+      text-decoration: none;
+      color: rgba(255,255,255,.8);
     }
 
 .scribble-wrapper {

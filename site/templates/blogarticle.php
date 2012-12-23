@@ -8,3 +8,4 @@
 
   </article>
 </section>
+<?php snippet('footer') ?>

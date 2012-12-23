@@ -19,6 +19,6 @@
 
   <header>
     <a href="<?php echo url('scribbles') ?>" class="avatar"></a>
-    <h1>I design interfaces at<strong>6Wunderkinder.</strong></h1>
+    <h1 class="phrase animate hidden"></h1>
     <div class="clearfix"></div>
   </header>

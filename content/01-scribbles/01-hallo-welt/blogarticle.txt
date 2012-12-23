@@ -2,18 +2,20 @@ Title: Hallo Welt!!
 ----
 Date: 23.12.2012
 ----
-Text: I figured it was time I started a blog, so here is a short introductory post setting the scene for the rest.
+Text: Timothy here, I figured it was time I started a blog, so here is a short introductory post setting the scene for the rest.
 
-"Not another design blog." I hear you say? Well this one's different: promise. I plan to share my experience as an Product Designer living in Berlin and working at [6Wunderkinder](http://6wunderkinder.com).
+"Not another design blog." I hear you say? Well this one's different: promise. I plan to share my experience as an Interface Designer living in Berlin and working at [6Wunderkinder](http://6wunderkinder.com).
 
 First of all I just want to thank [Lukas Bestle](https://twitter.com/vis7mac "View Twitter") for his help setting up Kirby (the CMS I'm using).
 
-### Let's Set The Scene
-I'm a 20 year old Interface Designer from Manchester, United Kingdom.. I moved to Berlin and started at 6Wunderkidner in April 2012, working on [Wunderlist 2](http://6wunderkinder.com/wunderlist). I can safely say it was and is the best decision of my life to date.
+### So, Who's This Poser?
+I'm a 20 year old Interface Designer from Manchester, United Kingdom. I moved to Berlin and started at 6Wunderkidner in April 2012, working on [Wunderlist 2](http://6wunderkinder.com/wunderlist). I can safely say it was and is the best decision of my life to date.
 
-I'm also a huge fan of music, I find it hard to work without it. You can find me on [Spotify](http://open.spotify.com/user/thech053none) and on [Designers.MX](http://designers.mx/member/profile/iam_timm/mixes) where I make mixes.
+I'm also a huge fan of music, I find it hard to work without it. (I forsee a few posts relating to music in my future.) You can find me on [Spotify](http://open.spotify.com/user/thech053none) and on [Designers.MX](http://designers.mx/member/profile/iam_timm/mixes) where I make mixes.
 
-So let's hope this is the first of many posts!
+This is your blog as much as it is mine. I'm an amateur at writing and I wanna learn for you all! I've put this all on GitHub so you can contribute and improve if you wish. I'd love to get feedback on the blog and suggestions on topics you'd like to see me write about. I'm still contemplating whether to allow commenting on posts. [Tweet Me](http://twitter.com/iam_timm).
+
+Alrighty, subscribe to the feed if you like and let's hope this is the first post of many!
 
 Tschüß!
 

@@ -18,3 +18,4 @@
 
 </section>
 
+<?php snippet('footer') ?>
