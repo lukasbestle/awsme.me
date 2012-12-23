@@ -7,7 +7,7 @@ Version: 1.0
 body  {
   background: #b8462b;
   color: rgba(255,255,255,.8);
-  font-family: "Rounded", sans-serif;
+  font-family: "Gotham Rounded", "Rounded", sans-serif;
   padding: 120px 0 100px 100px;
   display: none;
 }
@@ -44,7 +44,7 @@ header  {
   }
 
     header h1 strong  {
-      font-weight: 600;
+      font-weight: 500;
       line-height: 45px
     }
 
@@ -110,6 +110,10 @@ header  {
     .actual-scribble  {
       width: 600px;
     }
+      .actual-scribble h1  {
+        font-size: 30px;
+      }
+
       .actual-scribble h3  {
         padding: 8px 0 4px 0;
         font-size: 19px;
@@ -141,8 +145,27 @@ header  {
       margin: 0 0 10px 0;
     }
 
+      .tweet-post {
+        position: relative;
+        margin: 40px 0 0 0;
+        font-size: 20px;
+        color: rgba(255,255,255,.5);
+      }
+
+        .tweet-post a {
+          text-decoration: none;
+          color: rgba(255,255,255,.7);
+          -webkit-transition: all 0.2s linear;
+        }
+
+          .tweet-post a:hover {
+            color: rgba(255,255,255,1.0);
+            border-bottom: 1px dotted rgba(255,255,255,1.0);
+          }
+
       .post-navigation  {
-        margin: 20px 0 0 0;
+        margin: 30px 0 0 0;
+        font-size: 18px;
         padding: 10px 15px 8px 15px;
         background: rgba(0,0,0,0.25);
         color: rgba(255,255,255,0.66);

@@ -49,7 +49,7 @@
          url('../fonts/rounded/rndmedium.woff') format('woff'),
          url('../fonts/rounded/rndmedium.ttf') format('truetype'),
          url('../fonts/rounded/rndmedium.svg#webfonthOIcM5wm') format('svg');
-    font-weight: 600;
+    font-weight: 500;
     font-style: normal;
 }
 
@@ -60,7 +60,7 @@
          url('../fonts/rounded/rndmediumita.woff') format('woff'),
          url('../fonts/rounded/rndmediumita.ttf') format('truetype'),
          url('../fonts/rounded/rndmediumita.svg#webfonthOIcM5wm') format('svg');
-    font-weight: 600;
+    font-weight: 500;
     font-style: italic;
 }
 
@@ -71,7 +71,7 @@
          url('../fonts/rounded/rndbold.woff') format('woff'),
          url('../fonts/rounded/rndbold.ttf') format('truetype'),
          url('../fonts/rounded/rndbold.svg#webfonthOIcM5wm') format('svg');
-    font-weight: 800;
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -82,6 +82,6 @@
          url('../fonts/rounded/rndboldita.woff') format('woff'),
          url('../fonts/rounded/rndboldita.ttf') format('truetype'),
          url('../fonts/rounded/rndboldita.svg#webfonthOIcM5wm') format('svg');
-    font-weight: 800;
+    font-weight: 700;
     font-style: italic;
 }
