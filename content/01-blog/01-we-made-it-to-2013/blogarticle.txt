@@ -1,6 +1,0 @@
-Title: We Made It! It's 2013.
-----
-Date: 01.01.2013
-----
-Text: Hello World!
-----

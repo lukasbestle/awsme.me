@@ -1,0 +1,20 @@
+Title: Hallo Welt!!
+----
+Date: 23.12.2012
+----
+Text: I figured it was time I started a blog, so here is a short introductory post setting the scene for the rest.
+
+"Not another design blog." I hear you say? Well this one's different: promise. I plan to share my experience as an Product Designer living in Berlin and working at [6Wunderkinder](http://6wunderkinder.com).
+
+First of all I just want to thank [Lukas Bestle](https://twitter.com/vis7mac "View Twitter") for his help setting up Kirby (the CMS I'm using).
+
+### Let's Set The Scene
+I'm a 20 year old Interface Designer from Manchester, United Kingdom.. I moved to Berlin and started at 6Wunderkidner in April 2012, working on [Wunderlist 2](http://6wunderkinder.com/wunderlist). I can safely say it was and is the best decision of my life to date.
+
+I'm also a huge fan of music, I find it hard to work without it. You can find me on [Spotify](http://open.spotify.com/user/thech053none) and on [Designers.MX](http://designers.mx/member/profile/iam_timm/mixes) where I make mixes.
+
+So let's hope this is the first of many posts!
+
+Tschüß!
+
+----

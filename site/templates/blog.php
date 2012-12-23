@@ -3,7 +3,6 @@
 <section class="content blog scribble-wrapper">
 
   <h2><?php echo html($page->title()) ?></h2>
-
   <ul class="scribbles">
 
     <?php foreach($page->children()->visible()->flip() as $article): ?>

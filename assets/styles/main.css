@@ -5,10 +5,10 @@ Version: 1.0
 */
 
 body  {
-  background: #485972;
+  background: #b8462b;
   color: rgba(255,255,255,.8);
   font-family: "Rounded", sans-serif;
-  padding: 120px 0 0 100px;
+  padding: 120px 0 100px 100px;
 }
 
 header  {
@@ -24,7 +24,12 @@ header  {
     height: 150px;
     display: block;
     float: left;
+    -webkit-transition: all 0.2s linear;
   }
+
+    .avatar:hover {
+      opacity: .8
+    }
 
   header h1 {
     font-size: 39px;
@@ -46,7 +51,7 @@ header  {
   .scribble-wrapper h2 {
     font-size: 27px;
     color: rgba(255,255,255,.5);
-    font-weight: 100;
+    font-weight: 200;
   }
 
   .scribbles  {
@@ -61,7 +66,7 @@ header  {
 
       .scribble-date  {
         position: absolute;
-        margin: 0 0 0 -80px;
+        margin: 0 0 0 -86px;
         color: rgba(255,255,255,0.66);
       }
 
@@ -86,3 +91,60 @@ header  {
         -webkit-transition: all 0.2s linear;
       }
 
+  .scribble-wrapper h1 {
+    font-size: 32px;
+    color: rgba(255,255,255,.7);
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+    .actual-scribble  {
+      width: 600px;
+    }
+      .actual-scribble h3  {
+        padding: 8px 0 4px 0;
+        font-size: 19px;
+        color: rgba(255,255,255,.6);
+      }
+
+      .actual-scribble p  {
+        font-family: "proxima-nova",sans-serif;
+        font-size: 17px;
+        line-height: 26px;
+        color: rgba(255,255,255,.5);
+        margin-bottom: 10px;
+      }
+
+        .actual-scribble p a  {
+          text-decoration: none;
+          color: rgba(255,255,255,.7);
+          -webkit-transition: all 0.2s linear;
+        }
+
+          .actual-scribble p a:hover  {
+            color: rgba(255,255,255,1.0);
+            border-bottom: 1px dotted rgba(255,255,255,1.0);
+          }
+
+    .actual-scribble ul li {
+      list-style: circle;
+      color: rgba(255,255,255,.5);
+      margin: 0 0 10px 0;
+    }
+
+      .post-navigation  {
+        margin: 20px 0 0 0;
+        padding: 10px 15px 8px 15px;
+        background: rgba(0,0,0,0.25);
+        color: rgba(255,255,255,0.66);
+        text-decoration: none;
+        -webkit-border-radius: 4px;
+        -webkit-transition: all 0.2s linear;
+        display: inline-block;
+      }
+
+        .post-navigation:hover  {
+          background: rgba(0,0,0,0.5);
+          color: rgba(255,255,255,0.8);
+
+        }

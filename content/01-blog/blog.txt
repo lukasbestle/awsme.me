@@ -1,3 +1,0 @@
-Title: Scribbles
-----
-Text: This is a nice Demo Blog.

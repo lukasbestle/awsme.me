@@ -18,7 +18,7 @@
 <body>
 
   <header>
-    <span class="avatar"></span>
+    <a href="<?php echo url('scribbles') ?>" class="avatar"></a>
     <h1>I design interfaces at<strong>6Wunderkinder.</strong></h1>
     <div class="clearfix"></div>
   </header>
