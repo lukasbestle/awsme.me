@@ -10,6 +10,17 @@ body {
   font-family: "Gotham Rounded", "Rounded", sans-serif;
   padding: 120px 0 30px 100px;
   font-weight: 200;
+  -webkit-transition: padding 0.2s linear;
+  -moz-transition: padding 0.2s linear;
+  -o-transition: padding 0.2s linear;
+  transition: padding 0.2s linear;
+
+}
+
+.button {
+  margin: 20px 0 0 0;
+  display: inline-block;
+  font-size: 18px;
 }
 
 header {  position: relative }
@@ -48,15 +59,21 @@ header h1 strong {
 header h1 a {
   text-decoration: none;
   color: rgba(255,255,255,.8);
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
+  transition: color 0.2s linear;
 }
 
 header h1 a:hover {  color: rgba(255,255,255,.4);  }
 
-.scribble-wrapper {  margin: 50px 0 0 185px }
+.scribble-wrapper {
+  margin: 50px 0 0 185px;
+  -webkit-transition: margin 0.2s linear;
+  -moz-transition: margin 0.2s linear;
+  -o-transition: margin 0.2s linear;
+  transition: margin 0.2s linear;
+}
 
 .scribble-wrapper h2 {
   font-size: 27px;
@@ -81,7 +98,7 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
   color: rgba(255,255,255,0.66);
 }
 
-.scribble-title {
+.scribble-title, .button {
   font-weight: 200;
   padding: 10px 15px 8px 15px;
   background: rgba(0,0,0,0.25);
@@ -210,6 +227,10 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
   color: rgba(255,255,255,0.3);
   margin: 100px 0 0 185px;
   font-weight: 400;
+  -webkit-transition: margin 0.2s linear;
+  -moz-transition: margin 0.2s linear;
+  -o-transition: margin 0.2s linear;
+  transition: margin 0.2s linear;
 }
 
 .footer a {
@@ -283,6 +304,10 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
 
   body {  padding: 120px 20px 30px 20px !important;  }
 
+  .scribble-date {
+    display: none;
+  }
+
   .scribble-wrapper {  margin: 50px 0 0 0 !important  }
 
   .footer {  margin: 100px 0 0 0 !important  }
@@ -310,10 +335,6 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
     font-weight: 200;
     margin: 28px 0 0 120px;
     position: absolute;
-  }
-
-  .scribble-date {
-    display: none;
   }
 
   .footer {
