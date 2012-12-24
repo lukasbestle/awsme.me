@@ -14,7 +14,7 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
 
-  <link rel="alternate" type="application/rss+xml" href="<?php echo url('scribbles/feed') ?>" title="<?php echo html($pages->find('scribbles/feed')->title()) ?>" />
+  <link rel="alternate" type="application/rss+xml" href="<?php echo url('feed') ?>" title="<?php echo html($pages->find('feed')->title()) ?>" />
 
   <?php echo css('assets/styles/styles.css') ?>
 
