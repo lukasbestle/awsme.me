@@ -7,6 +7,7 @@
   <meta name="description" content="<?php echo html($site->description()) ?>" />
   <meta name="keywords" content="<?php echo html($site->keywords()) ?>" />
   <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <script type="text/javascript" src="//use.typekit.net/lbi2wlw.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
