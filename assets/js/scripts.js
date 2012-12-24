@@ -16,7 +16,7 @@ var phrases = [
 var stack = [];
 var delay = 8000;
 var limit = 1; // change probability, 1-10
-var isPhraseHovered;
+var isPhraseHovered = false;
 var last;
 
 
@@ -39,6 +39,7 @@ function getPhrase (index) {
 
       // if we got a result from the phrases, remove it
       stack.splice(index, 1);
+      last = next;
       return next;
     }
     else {
@@ -71,6 +72,11 @@ function getPhrase (index) {
 
 function update (index) {
 
+  // if the phrase is hovered, don't change it
+  if (isPhraseHovered) {
+    return;
+  }
+
   var directions = [
     'bounceInUp',
     'bounceInDown'
@@ -89,6 +95,18 @@ function update (index) {
     $('.phrase').html(getPhrase(index)).fadeIn(500);
   }, 100);
 }
+
+// hover event handlers
+function onPhraseHoverStart () {
+  isPhraseHovered = true;
+}
+function onPhraseHoverEnd () {
+  isPhraseHovered = false;
+}
+
+// bind event handlers to mouseenter and mouseleave
+// could also user .hover(start, end) but it's deprecated in v 1.9
+$('.phrase').mouseenter(onPhraseHoverStart).mouseleave(onPhraseHoverEnd);
 
 // the bootstrap method, should show first quote
 // and then schedule the random updates
