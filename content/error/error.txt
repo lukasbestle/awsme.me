@@ -1,3 +1,3 @@
 Title: This is not the page you were looking for...
 ----
-Text: Hey partner, I think you're lost!
+Text: [Go Home](http://awsme.me)

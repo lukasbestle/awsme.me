@@ -7,14 +7,14 @@ Text: Timothy here, I figured it was time I started a blog, so here is a short i
 "Not another blog to read!" I hear you say? Well this one's different: promise. I really want to keep the posts short and sweet; sharing my experiences as an Interface Designer living in Berlin and working at [6Wunderkinder](http://6wunderkinder.com).
 
 ### So, Who's This Poser?
-I'm a 20 year old Interface Designer from Manchester, United Kingdom. I moved to Berlin and started at 6Wunderkidner in April 2012. I've been working on [Wunderlist 2](http://6wunderkinder.com/wunderlist) for the past 9 months and it's been released, you should check it out!. I can safely say moving to Berlin and joining 6Wunderkinder was and is the best decision of my life to date. I'll be writing more about the launch of Wunderlist 2 in the future.
+I'm a 20 year old Interface Designer from Manchester, United Kingdom. I moved to Berlin and started at 6Wunderkidner in April 2012. I've been working on [Wunderlist 2](http://6wunderkinder.com/wunderlist) for the past 9 months and it's just been released, you should check it out!. I can safely say moving to Berlin and joining 6Wunderkinder was and is the best decision of my life to date. I'll be writing more about the launch of Wunderlist 2 and life at 6Wunderkinder in the future.
 
-### Behind The Pixels?
-When I'm not designing, I'm probably thinking about designing but when i'm not doing that I love kicking back and enjoying a good TV show.
+### Behind The Pixels
+When I'm not designing, I'm probably thinking about design but when i'm not doing that I love kicking back and enjoying a good TV show with my roommate or hitting my local for a couple of pints.
 
-I'm also a huge fan of music, I find it hard to do anything without it. (I forsee a few posts relating to music in my future.) You can find me on [Spotify](http://open.spotify.com/user/thech053none) and on [Designers.MX](http://designers.mx/member/profile/iam_timm/mixes) where I make mixes.
+I'm also a huge fan of music, I find it hard to do anything without it. (I'll also be writing about music and how it influences me as a designer.) You can find me on [Spotify](http://open.spotify.com/user/thech053none) and on [Designers.MX](http://designers.mx/member/profile/iam_timm/mixes) where I make mixes.
 
-I really feel this blog is your blog as much as it is mine. I'm an amateur blogger and and i have a lot to learn! You can find the repo of this blog on [GitHub](https://github.com/iamtimm/awsme.me) so you can contribute and improve if you wish. I'd love to get feedback on the blog and suggestions on topics you'd like to see me write about. I'm still contemplating whether to allow commenting on posts: we'll see.
+I really feel this blog is your blog as much as it is mine.  You can find the repo of this blog on [GitHub](https://github.com/iamtimm/awsme.me) so you can contribute and improve if you wish. I'm an amateur blogger and and I have a lot to learn! I'd love to get feedback on the blog and suggestions on topics you'd like to see me write about. I'm still contemplating whether to implement commenting on posts: we'll see.
 
 Well I hope you all have an amazing holiday: which ever one you're celebrating!
 

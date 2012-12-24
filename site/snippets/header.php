@@ -11,6 +11,8 @@
   <script type="text/javascript" src="//use.typekit.net/lbi2wlw.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+
   <link rel="alternate" type="application/rss+xml" href="<?php echo url('scribbles/feed') ?>" title="<?php echo html($pages->find('scribbles/feed')->title()) ?>" />
 
   <?php echo css('assets/styles/styles.css') ?>
