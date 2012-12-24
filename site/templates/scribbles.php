@@ -11,7 +11,7 @@
 
     <li class="scribble">
       <article>
-        <span class="scribble-date"><?php echo $article->date('M d') ?></span><a class="scribble-title" href="<?php echo $article->url() ?>"><?php echo html($article->title()) ?></a><span class="scribble-word-count"><?php echo str_word_count($article->text()->value, 0) ?> Words</span>
+        <span class="scribble-date"><?php echo $article->date('M d') ?></span><a class="scribble-title" href="<?php echo str_replace("/scribbles", "", $article->url()) ?>"><?php echo html($article->title()) ?></a><span class="scribble-word-count"><?php echo str_word_count($article->text()->value, 0) ?> Words</span>
       </article>
     </li>
 
