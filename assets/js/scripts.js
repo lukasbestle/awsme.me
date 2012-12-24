@@ -14,6 +14,9 @@ onclickFkt = function() {
 	// Get the URL to get from the server
 	var url = $(this).attr("href");
 	
+	// Don't load the same page again
+	if(url == $(location).attr('href')) return false;
+	
 	// Let us hide the content first to create a beautiful animation
 	$(".content").css("opacity", 0);
 	
