@@ -12,7 +12,8 @@
   <script type="text/javascript" src="//use.typekit.net/lbi2wlw.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/me.png">
+  <link rel="apple-touch-icon" href="assets/images/me.png">
 
   <link rel="alternate" type="application/rss+xml" href="<?php echo url('feed') ?>" title="<?php echo html($pages->find('feed')->title()) ?>" />
 
