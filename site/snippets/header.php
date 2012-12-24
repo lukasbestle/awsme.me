@@ -9,7 +9,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <script type="text/javascript" src="//use.typekit.net/lbi2wlw.js"></script>
+  <script type="text/javascript" src="http://use.typekit.net/lbi2wlw.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <link rel="shortcut icon" type="image/x-icon" href="assets/images/me.png">
