@@ -114,7 +114,7 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
   transition: background 0.2s linear;
 }
 
-.scribble-title:hover {
+.scribble-title:hover, .button:hover {
   background: rgba(0,0,0,0.5);
   color: rgba(255,255,255,0.8);
 }
