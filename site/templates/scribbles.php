@@ -1,6 +1,8 @@
+<?php if(!r::is_ajax()) { ?>
 <?php snippet('header') ?>
 
 <section class="content blog scribble-wrapper">
+<?php }  else { header("X-Title: " . $site->title() . " - " . $page->title()); } ?>
 
   <h2><?php echo html($page->title()) ?></h2>
   <ul class="scribbles">
@@ -16,6 +18,8 @@
     <?php endforeach ?>
   </ul>
 
+<?php if(!r::is_ajax()) { ?>
 </section>
 
 <?php snippet('footer') ?>
+<?php } ?>

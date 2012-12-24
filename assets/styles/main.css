@@ -69,10 +69,10 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
 
 .scribble-wrapper {
   margin: 50px 0 0 185px;
-  -webkit-transition: margin 0.2s linear;
-  -moz-transition: margin 0.2s linear;
-  -o-transition: margin 0.2s linear;
-  transition: margin 0.2s linear;
+  -webkit-transition: margin 0.2s linear, opacity 0.2s linear;
+  -moz-transition: margin 0.2s linear, opacity 0.2s linear;
+  -o-transition: margin 0.2s linear, opacity 0.2s linear;
+  transition: margin 0.2s linear, opacity 0.2s linear;
 }
 
 .scribble-wrapper h2 {

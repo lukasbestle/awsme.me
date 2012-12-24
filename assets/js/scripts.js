@@ -1,5 +1,43 @@
+// ====================================
+// Redirect external links
 $('a[href^="http://"]').not('a[href*=awsme]').attr('target','_blank');
 $('a[href^="https://"]').not('a[href*=awsme]').attr('target','_blank');
+
+// ====================================
+// AJAXification
+
+// Get all internal links
+siteURL = "http://" + top.location.host.toString();
+internalLinks = $("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[href^='../']");
+
+onclickFkt = function() {
+	// Get the URL to get from the server
+	var url = $(this).attr("href");
+	
+	// Let us hide the content first to create a beautiful animation
+	$(".content").css("opacity", 0);
+	
+	// Wait for the animation to complete before changing anything
+	setTimeout(function() {
+		$.get(url, function(data, status, xhr) {
+			// Change the page content, title and URI
+			$(".content").html(data).css("opacity", 1);
+			$("title").html(xhr.getResponseHeader("X-Title"));
+			history.pushState({}, $("title").html(), url);
+			
+			// Prepare the site for the next click
+			$("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[href^='../']").unbind("click").bind("click", onclickFkt);
+		});
+	}, 200);
+	
+	// Don't really follow that link
+	return false;
+};
+
+// Register the links for the onclick event above
+internalLinks.click(onclickFkt);
+
+// ====================================
 // Random Phrase Generator
 
 var phrases = [
