@@ -24,7 +24,7 @@
 <body>
 
   <header>
-    <a href="<?php echo url('scribbles') ?>" class="avatar"></a>
+    <a href="<?php echo url() ?>" class="avatar"></a>
     <h1 class="phrase animate hidden"></h1>
     <div class="clearfix"></div>
   </header>
