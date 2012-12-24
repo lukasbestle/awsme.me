@@ -55,7 +55,7 @@ var phrases = [
 
 
 var stack = [];
-var delay = 8000;
+var delay = 10000;
 var limit = 1; // change probability, 1-10
 var isPhraseHovered = false;
 var last;
