@@ -4,6 +4,19 @@
  * Version: 1.0
  */
 
+* {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+}
+.selectable * {
+	user-select: text;
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-o-user-select: text;
+}
+
 body {
   background: #b8462b;
   color: rgba(255,255,255,.8);
