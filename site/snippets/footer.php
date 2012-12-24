@@ -1,9 +1,9 @@
 
 <div class="footer">
-  Designed and developed by <a href="http://twitter.com/iam_timm">Timothy ッ</a> with help from some <span>contributors.<div class="contributors">Lukas Bestle<br/>Adam Renklint<br/>Dominik Schmidt</div></span>
+  Designed and developed by <a href="http://twitter.com/iam_timm">Timothy ッ</a> with help from some <span>contributors.<span class="contributors">Lukas Bestle<br/>Adam Renklint<br/>Dominik Schmidt</span></span>
 </div>
 
-  <?php echo js('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js') ?>
+  <?php echo js('http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js') ?>
   <?php echo js('assets/js/scripts.js') ?>
 
   <script type="text/javascript">
