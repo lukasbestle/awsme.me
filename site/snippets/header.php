@@ -5,7 +5,6 @@
 	<meta charset="utf-8" />
   <title><?php echo html($site->title()) ?> &raquo; <?php echo html($page->title()) ?></title>
   <meta name="description" content="<?php echo html($site->description()) ?>" />
-  <meta name="keywords" content="<?php echo html($site->keywords()) ?>" />
   <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
