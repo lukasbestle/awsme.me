@@ -2,7 +2,7 @@
 <?php snippet('header') ?>
 
 <section class="content blog scribble-wrapper">
-<?php } else { header("X-Title: " . $site->title() . " - " . $page->title()); } ?>
+<?php } else { header("X-Title: " . $site->title() . " &raquo; " . $page->title()); } ?>
 
   <h2><?php echo html($page->title()) ?></h2>
   <p class="body-text"><?php echo kirbytext($page->text()) ?></p>

@@ -1,7 +1,7 @@
 <?php if(!r::is_ajax()) { ?>
 <?php snippet('header') ?>
 <section class="content scribble-wrapper blogarticle">
-<?php } else { header("X-Title: " . $site->title() . " - " . $page->title()); } ?>
+<?php } else { header("X-Title: " . $site->title() . " &raquo; " . $page->title()); } ?>
 
   <article class="actual-scribble">
   	<div class="selectable">
