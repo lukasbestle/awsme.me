@@ -229,6 +229,9 @@ function init () {
 
   // and schedule the updates
   setInterval(update, delay);
+
+  // When launched from Home Screen always go to the homepage
+	if(window.navigator.standalone && window.location.pathname != "/") loadContent("/", true);
 }
 
 // run the bootstrap initializer when dom is ready
