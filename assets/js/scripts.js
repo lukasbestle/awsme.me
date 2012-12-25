@@ -52,13 +52,6 @@ function loadContent (url, pushCurrentState) {
 
   // repetative comments, but it's important - cache selectors!
   var $content = $('.content');
-
-  // use a deferred to wait for animation to be done
-  var animationDeferred = new $.Deferred();
-  window.setTimeout(animationDeferred.resolve, 200);
-
-  // fade out the current content,
-  $content.css('opacity', 0);
   
   // load the new content
   $.get(url, function (data, status, xhr) {
@@ -72,34 +65,34 @@ function loadContent (url, pushCurrentState) {
 	  	document.location = url;
 	  	return;
 	  }
-	  
-    // when animation is done and content is loaded
-    animationDeferred.done(function () {
 
-      function showContent () {
-
-        // put the content to the dom and fade it in
-        $content.html(data).css('opacity', 1);
-      }
-
-      // if the visitor has scrolled, scroll back to the top
-      if (window.pageYOffset > 0) {
-        $('body').animate({
-          'scrollTop': 0
-        }, scrollDuration, showContent);
-      }
-      else {
-        showContent();
-      }
-
-      // update the window/tab title
-      document.title = unescapeEntities(title);
+    function showContent () {
+      // fade out the current content
+      $content.css('opacity', 0);
       
-      if(pushCurrentState) {
-      	// push the current url to history
-      	window.history.pushState(null, null, url);
-      }
-    });
+      setTimeout(function() {
+      	// put the content to the dom and fade it in
+      	$content.html(data).css('opacity', 1);
+      }, 300);
+    }
+
+    // if the visitor has scrolled, scroll back to the top
+    if (window.pageYOffset > 0) {
+      $('body').animate({
+        'scrollTop': 0
+      }, scrollDuration, showContent);
+    }
+    else {
+      showContent();
+    }
+
+    // update the window/tab title
+    document.title = unescapeEntities(title);
+    
+    if(pushCurrentState) {
+    	// push the current url to history
+    	window.history.pushState(null, null, url);
+    }
   });
 }
 
