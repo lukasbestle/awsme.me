@@ -12,10 +12,11 @@ var stack = [];
 var delay = 10000;
 var limit = 1; // change probability, 1-10
 var isPhraseHovered = false;
-var hasLoadedOnce = false;
 var scrollDuration = 300;
 var lastUrl;
 var last;
+var initialUrl = document.location;
+var firstPopState = true;
 
 // cache the site URL
 var siteURL = window.location.origin.toString();
@@ -29,6 +30,11 @@ function initInternalLinks () {
 
   // the handler that makes back and forward buttons work
   $(window).on('popstate', function (e) {
+  	if(document.location == initialUrl && firstPopState) {
+	  	firstPopState = false;
+	  	return;
+  	}
+  	
     loadContent(location.pathname + location.search);
   });
 }
@@ -52,10 +58,7 @@ function loadContent (url, pushCurrentState) {
   window.setTimeout(animationDeferred.resolve, 200);
 
   // fade out the current content,
-  // if it isn't the first load
-  if (hasLoadedOnce) {
-    $content.css('opacity', 0);
-  }
+  $content.css('opacity', 0);
   
   // load the new content
   $.get(url, function (data, status, xhr) {
@@ -96,10 +99,6 @@ function loadContent (url, pushCurrentState) {
       	// push the current url to history
       	window.history.pushState(null, null, url);
       }
-      
-      // set this to true, to avoid animations
-      // where we don't want them
-      hasLoadedOnce = true;
     });
   });
 }
