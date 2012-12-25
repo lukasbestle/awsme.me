@@ -1,5 +1,4 @@
 var phrases = [
-  'I wish you all a<br/><strong>Merry Christmas.</strong>',
   'I go by the name<br/><strong>Timothy.</strong>',
   'I push pixels at<br/><strong><a target="_blank" href="http://6wunderkinder.com">6Wunderkinder</a>.</strong>',
   'I play a lot on<br/><strong><a target="_blank" class="dribbble" href="http://dribbble.com/iam_timm">dribbble</a>.</strong>',
@@ -13,6 +12,9 @@ var stack = [];
 var delay = 10000;
 var limit = 1; // change probability, 1-10
 var isPhraseHovered = false;
+var hasLoadedOnce = false;
+var scrollDuration = 300;
+var lastUrl;
 var last;
 
 // cache the site URL
@@ -34,6 +36,7 @@ function initInternalLinks () {
 // grab the content from a url and push to DOM
 function loadContent (url) {
 
+<<<<<<< HEAD
   // repetative comments, but it's important - cache selectors!
   var $content = $('.content');
 
@@ -73,6 +76,80 @@ function onClickLink () {
     loadContent($(this).attr('href').replace(siteURL, ''));
     window.history.pushState(null, null, $(this).attr('href'));
     wasHistoryEdited = true;
+=======
+  // if we're trying to reload the same url, do nothing
+  if (url === lastUrl) {
+    return;
+  }
+
+  // remember to save this value!
+  lastUrl = url;
+
+  // repetative comments, but it's important - cache selectors!
+  var $content = $('.content');
+
+  // use a deferred to wait for animation to be done
+  var animationDeferred = new $.Deferred();
+  window.setTimeout(animationDeferred.resolve, 200);
+
+  // fade out the current content,
+  // if it isn't the first load
+  if (hasLoadedOnce) {
+    $content.css('opacity', 0);
+  }
+
+  // load the new content
+  $.get(url, function (data, status, xhr) {
+
+    // when animation is done and content is loaded
+    animationDeferred.done(function () {
+
+      function showContent () {
+
+        // put the content to the dom and fade it in
+        $content.html(data).css('opacity', 1);
+      }
+
+      // if the visitor has scrolled, scroll back to the top
+      if (window.pageYOffset > 0) {
+        $('body').animate({
+          'scrollTop': 0
+        }, scrollDuration, showContent);
+      }
+      else {
+        showContent();
+      }
+
+      // update the window/tab title
+      document.title = xhr.getResponseHeader('X-Title');
+
+      // set this to true, to avoid animations
+      // where we don't want them
+      hasLoadedOnce = true;
+    });
+  });
+}
+
+// click event handler for all links
+function onClickLink () {
+
+  // cache the jquery object, best practice for performance
+  var $this = $(this);
+  var targetUrl = $this.attr('href');
+  var isInternalLink = targetUrl.indexOf(siteURL) >= 0;
+
+  // if pushState is supported, use it for internal links
+  if (window.history && history.pushState && isInternalLink) {
+
+    // load content
+    loadContent($(this).attr('href').replace(siteURL, ''));
+
+    // push the current url to history
+    window.history.pushState(null, null, $(this).attr('href'));
+    wasHistoryEdited = true;
+
+    // return false to avoid default <a> #click behavior
+>>>>>>> 7534530c905293169cea9ac96d09bef1943dfb95
     return false;
   }
   // for external links
