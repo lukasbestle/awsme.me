@@ -95,7 +95,7 @@ function onClickLink () {
   // cache the jquery object, best practice for performance
   var $this = $(this);
   var targetUrl = $this.attr('href');
-  var isInternalLink = targetUrl.indexOf(siteURL) >= 0;
+  var isInternalLink = targetUrl.indexOf(siteURL) >= 0 || targetUrl.substring(0, 1) == "/";
 
   // if pushState is supported, use it for internal links
   if (window.history && history.pushState && isInternalLink) {
