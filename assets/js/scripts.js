@@ -34,7 +34,7 @@ function initInternalLinks () {
 }
 
 // grab the content from a url and push to DOM
-function loadContent (url) {
+function loadContent (url, pushCurrentState) {
 
   // if we're trying to reload the same url, do nothing
   if (url === lastUrl) {
@@ -59,7 +59,17 @@ function loadContent (url) {
   
   // load the new content
   $.get(url, function (data, status, xhr) {
-
+	  
+	  // get the title from the response headers
+	  var title = xhr.getResponseHeader('X-Title');
+	  
+	  // check if it is a vaild AJAXifyable page
+	  if(typeof(title) !== "string") {
+	  	// Nope, redirect to it
+	  	document.location = url;
+	  	return;
+	  }
+	  
     // when animation is done and content is loaded
     animationDeferred.done(function () {
 
@@ -80,8 +90,13 @@ function loadContent (url) {
       }
 
       // update the window/tab title
-      document.title = unescapeEntities(xhr.getResponseHeader('X-Title'));
-
+      document.title = unescapeEntities(title);
+      
+      if(pushCurrentState) {
+      	// push the current url to history
+      	window.history.pushState(null, null, url);
+      }
+      
       // set this to true, to avoid animations
       // where we don't want them
       hasLoadedOnce = true;
@@ -101,11 +116,7 @@ function onClickLink () {
   if (window.history && history.pushState && isInternalLink) {
 
     // load content
-    loadContent($(this).attr('href').replace(siteURL, ''));
-
-    // push the current url to history
-    window.history.pushState(null, null, $(this).attr('href'));
-    wasHistoryEdited = true;
+    loadContent($(this).attr('href').replace(siteURL, ''), true);
 
     // return false to avoid default <a> #click behavior
     return false;
