@@ -13,6 +13,7 @@ var delay = 10000;
 var limit = 1; // change probability, 1-10
 var isPhraseHovered = false;
 var hasLoadedOnce = false;
+var scrollDuration = 300;
 var lastUrl;
 var last;
 
@@ -62,8 +63,21 @@ function loadContent (url) {
     // when animation is done and content is loaded
     animationDeferred.done(function () {
 
-      // put the content to the dom and fade it in
-      $content.html(data).css('opacity', 1);
+      function showContent () {
+
+        // put the content to the dom and fade it in
+        $content.html(data).css('opacity', 1);
+      }
+
+      // if the visitor has scrolled, scroll back to the top
+      if (window.pageYOffset > 0) {
+        $('body').animate({
+          'scrollTop': 0
+        }, scrollDuration, showContent);
+      }
+      else {
+        showContent();
+      }
 
       // update the window/tab title
       document.title = xhr.getResponseHeader('X-Title');
