@@ -13,13 +13,13 @@ internalLinks = $("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[hr
 onclickFkt = function() {
 	// Get the URL to get from the server
 	var url = $(this).attr("href");
-	
+
 	// Don't load the same page again
 	if(url == $(location).attr('href')) return false;
-	
+
 	// Let us hide the content first to create a beautiful animation
 	$(".content").css("opacity", 0);
-	
+
 	// Wait for the animation to complete before changing anything
 	setTimeout(function() {
 		$.get(url, function(data, status, xhr) {
@@ -27,12 +27,12 @@ onclickFkt = function() {
 			$(".content").html(data).css("opacity", 1);
 			$("title").html(xhr.getResponseHeader("X-Title"));
 			history.pushState({}, $("title").html(), url);
-			
+
 			// Prepare the site for the next click
 			$("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[href^='../']").unbind("click").bind("click", onclickFkt);
 		});
 	}, 200);
-	
+
 	// Don't really follow that link
 	return false;
 };
