@@ -14,7 +14,7 @@
     <a class="post-navigation" href="<?php echo url() ?>">Back</a>
 
   </article>
-  
+
 <?php if(!r::is_ajax()) { ?>
 </section>
 <?php snippet('footer') ?>

@@ -22,8 +22,9 @@
 
 <body>
 
-  <header>
-    <a href="<?php echo url() ?>" class="avatar"></a>
-    <h1 class="phrase animate hidden"></h1>
-    <div class="clearfix"></div>
-  </header>
+
+    <header>
+      <a href="<?php echo url() ?>" class="avatar"></a>
+      <h1 class="phrase animate hidden"></h1>
+      <div class="clearfix"></div>
+    </header>

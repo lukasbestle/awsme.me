@@ -1,50 +1,6 @@
-// ====================================
-// Redirect external links
-$('a[href^="http://"]').not('a[href*=awsme]').attr('target','_blank');
-$('a[href^="https://"]').not('a[href*=awsme]').attr('target','_blank');
-
-// ====================================
-// AJAXification
-
-// Get all internal links
-siteURL = "http://" + top.location.host.toString();
-internalLinks = $("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[href^='../']");
-
-onclickFkt = function() {
-	// Get the URL to get from the server
-	var url = $(this).attr("href");
-
-	// Don't load the same page again
-	if(url == $(location).attr('href')) return false;
-
-	// Let us hide the content first to create a beautiful animation
-	$(".content").css("opacity", 0);
-
-	// Wait for the animation to complete before changing anything
-	setTimeout(function() {
-		$.get(url, function(data, status, xhr) {
-			// Change the page content, title and URI
-			$(".content").html(data).css("opacity", 1);
-			$("title").html(xhr.getResponseHeader("X-Title"));
-			history.pushState({}, $("title").html(), url);
-
-			// Prepare the site for the next click
-			$("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[href^='../']").unbind("click").bind("click", onclickFkt);
-		});
-	}, 200);
-
-	// Don't really follow that link
-	return false;
-};
-
-// Register the links for the onclick event above
-internalLinks.click(onclickFkt);
-
-// ====================================
-// Random Phrase Generator
-
 var phrases = [
-  'I go by the name<br/><strong>Timothy.</strong>', // Force this one to go first.
+  'I wish you all a<br/><strong>Merry Christmas.</strong>',
+  'I go by the name<br/><strong>Timothy.</strong>',
   'I push pixels at<br/><strong><a target="_blank" href="http://6wunderkinder.com">6Wunderkinder</a>.</strong>',
   'I play a lot on<br/><strong><a target="_blank" class="dribbble" href="http://dribbble.com/iam_timm">dribbble</a>.</strong>',
   'I write 140<br/>character <strong><a target="_blank" class="twitter" href="http://twitter.com/iam_timm">posts</a>.</strong>',
@@ -53,14 +9,83 @@ var phrases = [
   'I make mixes on<br/><strong><a target="_blank" class="designersmx" href="http://designers.mx/member/profile/iam_timm/mixes">Designers.MX</a>.</strong>'
 ];
 
-
 var stack = [];
 var delay = 10000;
 var limit = 1; // change probability, 1-10
 var isPhraseHovered = false;
 var last;
 
+// cache the site URL
+var siteURL = window.location.origin.toString();
 
+// bootstrap for ajaxified internal links
+function initInternalLinks () {
+
+  // attach the link event handler, and make sure
+  // it's delegated for best performance
+  $(document).on('click', 'a', onClickLink);
+
+  // the handler that makes back and forward buttons work
+  $(window).on('popstate', function (e) {
+    loadContent(location.pathname + location.search);
+  });
+}
+
+// grab the content from a url and push to DOM
+function loadContent (url) {
+
+  // repetative comments, but it's important - cache selectors!
+  var $content = $('.content');
+
+  // use a deferred to wait for animation to be done
+  var animationDeferred = new $.Deferred();
+  window.setTimeout(animationDeferred.resolve, 200);
+
+  // fade out the current content
+  $content.css('opacity', 0);
+
+  // load the new content
+  $.get(url, function (data, status, xhr) {
+
+    // when animation is done and content is loaded
+    animationDeferred.done(function () {
+
+      // put the content to the dom and fade it in
+      $content.html(data).css('opacity', 1);
+
+      // update the window/tab title
+      document.title = xhr.getResponseHeader('X-Title');
+    });
+  });
+}
+
+// click event handler for all links
+function onClickLink () {
+
+  // cache the jquery object, best practice for performance
+  var $this = $(this);
+  var targetUrl = $this.attr('href');
+  var isInternalLink = targetUrl.indexOf(siteURL) >= 0;
+
+  // if pushState is supported, use it for internal links
+  if (window.history && history.pushState && isInternalLink) {
+
+    loadContent($(this).attr('href').replace(siteURL, ''));
+    window.history.pushState(null, null, $(this).attr('href'));
+    wasHistoryEdited = true;
+    return false;
+  }
+  // for external links
+  else if (!isInternalLink) {
+    $(this).attr('target', '_blank');
+  }
+
+  // internal links, when pushState is not supported,
+  // will work as normal links...
+}
+
+// the function responsible for getting a phrase,
+// from a specific index or otherwise random
 function getPhrase (index) {
 
   var next;
@@ -111,6 +136,8 @@ function getPhrase (index) {
   }
 }
 
+// the function responsible for getting a new
+// phrase and updating the DOM
 function update (index) {
 
   // if the phrase is hovered, don't change it
@@ -118,22 +145,25 @@ function update (index) {
     return;
   }
 
+  // make sure to cache this selector,
+  // since we use it more than once
+  var $phrase = $('.phrase');
+
   var directions = [
     'bounceInUp',
     'bounceInDown'
   ];
 
-  var direction = Math.floor(Math.random()*directions.length);
+  var direction = Math.floor(Math.random() * directions.length);
 
-  $('.phrase').removeClass('bounceInUp');
-  $('.phrase').removeClass('bounceInDown');
+  $phrase.removeClass('bounceInUp bounceInDown');
 
   setTimeout(function () {
-    $('.phrase').addClass(directions[direction]);
+    $phrase.addClass(directions[direction]);
   }, 0);
 
   setTimeout(function () {
-    $('.phrase').html(getPhrase(index)).fadeIn(500);
+    $phrase.html(getPhrase(index)).fadeIn(500);
   }, 100);
 }
 
@@ -152,6 +182,9 @@ $('.phrase').mouseenter(onPhraseHoverStart).mouseleave(onPhraseHoverEnd);
 // the bootstrap method, should show first quote
 // and then schedule the random updates
 function init () {
+
+  // call the ajaxified internal links bootstrap
+  initInternalLinks();
 
   // pass in 0 as index, to grab the first string
   update(0);

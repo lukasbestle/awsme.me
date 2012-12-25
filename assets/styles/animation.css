@@ -11,6 +11,13 @@
 	animation-duration: 1s;
 }
 
+.delay  {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
 @-webkit-keyframes bounceInUp {
 	0% {
 		opacity: 0;
@@ -186,7 +193,7 @@
 	animation-name: bounceInDown;
 }
 
-@keyframes fadein {
+@keyframes fadeIn {
     from {
         opacity:0;
     }
@@ -194,7 +201,7 @@
         opacity:1;
     }
 }
-@-moz-keyframes fadein { /* Firefox */
+@-moz-keyframes fadeIn {
     from {
         opacity:0;
     }
@@ -202,7 +209,7 @@
         opacity:1;
     }
 }
-@-webkit-keyframes fadein { /* Safari and Chrome */
+@-webkit-keyframes fadeIn {
     from {
         opacity:0;
     }
@@ -210,11 +217,18 @@
         opacity:1;
     }
 }
-@-o-keyframes fadein { /* Opera */
+@-o-keyframes fadeIn {
     from {
         opacity:0;
     }
     to {
         opacity: 1;
     }
+}
+
+.fadeIn {
+	-webkit-animation-name: fadeIn;
+	-moz-animation-name: fadeIn;
+	-o-animation-name: fadeIn;
+	animation-name: fadeIn;
 }
