@@ -18,31 +18,68 @@
 	-o-user-select: text;
 }
 
-body {
+body  {
   background: #b8462b;
   color: rgba(255,255,255,.8);
+  font-family: Arial;
   font-family: "Gotham Rounded", "Rounded", sans-serif;
-  padding: 120px 0 30px 100px;
   font-weight: 200;
-  -webkit-transition: padding 0.2s linear;
-  -moz-transition: padding 0.2s linear;
-  -o-transition: padding 0.2s linear;
-  transition: padding 0.2s linear;
+}
 
+/* Global Styles */
+
+a {
+  text-decoration: none;
+  color: rgba(255,255,255,.8);
+}
+
+  a:hover {
+    color: rgba(255,255,255,1.0);
+    border-bottom: 1px dotted white;
+  }
+
+strong  {
+  font-weight: 500;
 }
 
 .button {
-  margin: 20px 0 0 0;
   display: inline-block;
-  font-size: 18px;
+  padding: 10px 15px 8px 15px;
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.7);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
 
-header {  position: relative }
+  .button:hover {
+    background: rgba(0,0,0,0.5);
+    color: rgba(255,255,255,0.8);
+    border-bottom: none;
+  }
 
-.hidden {  display: none }
+.content  {
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+/* Header Styles */
+header  {
+  position: relative;
+}
+
+  header h1 {
+    font-size: 39px;
+    margin: 38px 0 0 185px;
+    position: absolute;
+    line-height: 45px;
+  }
 
 .avatar {
-  background: url("../images/me.png") center center no-repeat;
+  background: black url("../images/me.png") center center no-repeat;
   background-size: 100%;
   -webkit-border-radius: 150px;
   -moz-border-radius: 150px;
@@ -53,84 +90,40 @@ header {  position: relative }
   height: 150px;
   display: block;
   float: left;
-  -webkit-transition: all 0.2s linear;
 }
 
-.avatar:hover {  opacity: .6 }
+  .avatar:hover {
+    border-bottom: none;
+    opacity: .7;
+  }
 
-header h1 {
-  font-size: 39px;
-  font-weight: 200;
-  margin: 38px 0 0 185px;
-  position: absolute;
-  line-height: 45px;
-}
 
-header h1 strong {
-  font-weight: 500;
-}
-
-header h1 a {
-  text-decoration: none;
-  color: rgba(255,255,255,.8);
-  -webkit-transition: color 0.2s linear;
-  -moz-transition: color 0.2s linear;
-  -o-transition: color 0.2s linear;
-  transition: color 0.2s linear;
-}
-
-header h1 a:hover {  color: rgba(255,255,255,.4);  }
-
-.scribble-wrapper {
-  margin: 50px 0 0 185px;
-  -webkit-transition: margin 0.2s linear, opacity 0.2s linear;
-  -moz-transition: margin 0.2s linear, opacity 0.2s linear;
-  -o-transition: margin 0.2s linear, opacity 0.2s linear;
-  transition: margin 0.2s linear, opacity 0.2s linear;
-}
-
-.scribble-wrapper h2 {
+/* Posts */
+.scribble-list h2  {
   font-size: 27px;
   color: rgba(255,255,255,.5);
-  font-weight: 200;
 }
 
 .scribbles {
-  margin: 28px 0 0 0;
+  margin: 20px 0 0 0;
   font-size: 20px;
 }
 
-.scribble {
-  height: 38px;
-  margin: 0 0 13px 0;
-  font-weight: 400;
-}
+  .scribbles .scribble {
+    height: 38px;
+    margin: 0 0 13px 0;
+    font-weight: 400;
+  }
 
 .scribble-date {
   position: absolute;
-  margin: 0 0 0 -86px;
+  margin: 10px 0 0 -85px;
   color: rgba(255,255,255,0.66);
+
 }
 
-.scribble-title, .button {
+.scribble-title {
   font-weight: 200;
-  padding: 10px 15px 8px 15px;
-  background: rgba(0,0,0,0.25);
-  color: rgba(255,255,255,0.66);
-  text-decoration: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-transition: background 0.2s linear;
-  -moz-transition: background 0.2s linear;
-  -o-transition: background 0.2s linear;
-  transition: background 0.2s linear;
-}
-
-.scribble-title:hover, .button:hover {
-  background: rgba(0,0,0,0.5);
-  color: rgba(255,255,255,0.8);
 }
 
 .scribble-word-count {
@@ -140,54 +133,40 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
   padding: 0 0 0 15px;
 }
 
-.scribble-wrapper h1 {
-  font-size: 32px;
-  color: rgba(255,255,255,.7);
-  font-weight: 400;
-  margin-bottom: 10px;
-}
+/* Post */
 
-.actual-scribble {  width: 600px }
-
-.actual-scribble h1 {
-  font-size: 30px;
-  font-weight: 400;
-}
-
-.actual-scribble h3 {
-  padding: 8px 0 4px 0;
-  font-size: 19px;
-  font-weight: 400;
+.post {
   color: rgba(255,255,255,.6);
 }
 
-.actual-scribble p {
-  font-weight: 300;
-  font-family: "proxima-nova" ,sans-serif;
-  font-size: 17px;
-  line-height: 26px;
-  color: rgba(255,255,255,.5);
-  margin-bottom: 10px;
-}
+  .post h1 {
+    font-size: 30px;
+    font-weight: 400;
+    padding-bottom: 10px;
+  }
 
-.actual-scribble p a {
-  text-decoration: none;
-  color: rgba(255,255,255,.7);
-  -webkit-transition: color 0.2s linear;
-  -moz-transition: color 0.2s linear;
-  -o-transition: color 0.2s linear;
-  transition: color 0.2s linear;
-}
+  .post h3 {
+    padding: 15px 0 5px 0;
+    font-size: 21px;
+    font-weight: 400;
+  }
 
-.actual-scribble p a:hover {
-  color: rgba(255,255,255,1.0);
-  border-bottom: 1px dotted rgba(255,255,255,1.0);
-}
+  .post p {
+    font-weight: 300;
+    font-family: "Proxima Nova", "proxima-nova" ,sans-serif;
+    font-size: 17px;
+    line-height: 25px;
+    color: rgba(255,255,255,.4);
+    margin-bottom: 10px;
+  }
 
-.actual-scribble ul li {
-  list-style: circle;
-  color: rgba(255,255,255,.5);
-  margin: 0 0 10px 0;
+  .post p a {
+    color: rgba(255,255,255,.6);
+  }
+
+.post-navigation {
+  margin: 30px 0 0 0;
+  font-size: 18px;
 }
 
 .tweet-post {
@@ -199,73 +178,16 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
   color: rgba(255,255,255,.5);
 }
 
-.tweet-post a {
-  text-decoration: none;
-  color: rgba(255,255,255,.7);
-  -webkit-transition: color 0.2s linear;
-  -moz-transition: color 0.2s linear;
-  -o-transition: color 0.2s linear;
-  transition: color 0.2s linear;
-}
-
-.tweet-post a:hover {
-  color: rgba(255,255,255,1.0);
-  border-bottom: 1px dotted rgba(255,255,255,1.0);
-}
-
-.post-navigation {
-  margin: 30px 0 0 0;
-  font-size: 18px;
-  padding: 10px 15px 8px 15px;
-  background: rgba(0,0,0,0.25);
-  color: rgba(255,255,255,0.66);
-  text-decoration: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-transition: background 0.2s linear;
-  -moz-transition: background 0.2s linear;
-  -o-transition: background 0.2s linear;
-  transition: background 0.2s linear;
-  display: inline-block;
-}
-
-.post-navigation:hover {
-  background: rgba(0,0,0,0.5);
-  color: rgba(255,255,255,0.8);
-}
+/* Footer */
 
 .footer {
   font-size: 12px;
   color: rgba(255,255,255,0.3);
-  margin: 100px 0 0 185px;
   font-weight: 400;
-  -webkit-transition: margin 0.2s linear;
-  -moz-transition: margin 0.2s linear;
-  -o-transition: margin 0.2s linear;
-  transition: margin 0.2s linear;
-}
-
-.footer a {
-  text-decoration: none;
-  color: rgba(255,255,255,.7);
-  -webkit-transition: color 0.2s linear;
-  -moz-transition: color 0.2s linear;
-  -o-transition: color 0.2s linear;
-  transition: color 0.2s linear;
-}
-
-.footer a:hover {
-  color: rgba(255,255,255,1.0);
 }
 
 .footer > span  {
   color: rgba(255,255,255,.7);
-  -webkit-transition: color 0.2s linear;
-  -moz-transition: color 0.2s linear;
-  -o-transition: color 0.2s linear;
-  transition: color 0.2s linear;
   cursor: pointer;
 }
 
@@ -278,61 +200,73 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
   margin-top: -105px;
 }
 
-.contributors {
-  text-align: center;
-  position: absolute;
-  padding: 10px 15px;
-  background: rgba(0,0,0,0.25);
-  color: rgba(255,255,255,0.66);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  line-height: 20px;
-  margin: -1000000px 0 0 -105px;
-  opacity: 0;
-  -webkit-transition: opacity 0.2s linear;
-  -moz-transition: opacity 0.2s linear;
-  -o-transition: opacity 0.2s linear;
-  transition: opacity 0.2s linear;
+
+/* Media Queries */
+@media (min-width: 891px) {
+
+  .page-wrapper {
+    padding: 120px 0 30px 100px;
+  }
+
 }
 
-.contributors::after {
-  position: absolute;
-  display: inline-block;
-  content: " ";
-  width: 0;
-	height: 0;
-	margin: 30px 0 0 -62px;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 10px solid rgba(0,0,0,0.25);
+@media (max-width: 890px) and (min-width: 811px) {
+
+  .page-wrapper {
+    padding: 120px 0 30px 20px;
+  }
+
+
 }
 
-@media all and (max-width: 890px) and (min-width: 811px) {
+@media (min-width: 810px) {
 
-  body {  padding: 120px 0 30px 20px !important;  }
+  .content  {
+    margin: 50px 0 0 185px;
+    width: 600px;
+  }
+
+  .footer {
+    margin: 100px 0 0 185px;
+  }
+
 }
 
-@media all and (max-width: 810px) and (min-width: 0px) {
+@media (max-width: 810px) and (min-width: 631px) {
 
-  body {  padding: 120px 20px 30px 20px !important;  }
+  .page-wrapper {
+    padding: 120px 20px 30px 20px;
+  }
+  .content  {
+    margin: 50px 0 0 0;
+    width: 600px;
+  }
+}
+
+@media (max-width: 810px) and (min-width: 0px) {
 
   .scribble-date {
     display: none;
   }
 
-  .scribble-wrapper {  margin: 50px 0 0 0 !important  }
-
-  .footer {  margin: 100px 0 0 0 !important  }
+  .footer {
+    margin: 100px 0 0 0;
+  }
 
 }
 
-@media all and (max-width: 630px) and (min-width: 0px) {
+@media (max-width: 630px) and (min-width: 0px) {
 
-  body {  padding: 50px 20px 20px 20px !important;  }
+  .page-wrapper {
+    padding: 50px 20px 20px 20px;
+  }
 
-  .actual-scribble {  width: 100% }
+  header h1 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 200;
+    margin: 28px 0 0 120px;
+  }
 
   .avatar {
     -webkit-border-radius: 100px;
@@ -343,26 +277,15 @@ header h1 a:hover {  color: rgba(255,255,255,.4);  }
     height: 100px;
   }
 
-  header h1 {
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 200;
-    margin: 28px 0 0 120px;
-    position: absolute;
+  .content  {
+    margin: 50px 0 0 0;
+    width: 100%;
   }
 
   .footer {
     font-size: 14px;
     line-height: 21px;
-    margin-top: 50px !important;
+    margin-top: 80px;
   }
 
-  .footer span:hover .contributors  {
-    opacity: 0 !important;
-    margin-top: -11005px !important;
-  }
-
-  .footer span {
-    color: rgba(255,255,255,0.7) !important;
-  }
 }

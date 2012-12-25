@@ -20,11 +20,14 @@
 
 </head>
 
-<body>
+<body onload="setTimeout(function() { window.scrollTo(0, 1) }, 200);" >
 
+  <div class="page-wrapper">
 
     <header>
       <a href="<?php echo url() ?>" class="avatar"></a>
       <h1 class="phrase animate hidden"></h1>
       <div class="clearfix"></div>
     </header>
+
+    <section class="content">
