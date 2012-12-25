@@ -80,7 +80,7 @@ function loadContent (url) {
       }
 
       // update the window/tab title
-      document.title = xhr.getResponseHeader('X-Title');
+      document.title = unescapeEntities(xhr.getResponseHeader('X-Title'));
 
       // set this to true, to avoid animations
       // where we don't want them
@@ -230,3 +230,10 @@ function init () {
 
 // run the bootstrap initializer when dom is ready
 $(init);
+
+// Unescape HTML Entities
+function unescapeEntities(string) {
+	var d = document.createElement("div");
+	d.innerHTML = string;
+	return d.innerText || d.text || d.textContent;
+}
