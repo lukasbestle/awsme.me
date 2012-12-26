@@ -60,7 +60,7 @@ function loadContent (url, pushCurrentState) {
     var title = xhr.getResponseHeader('X-Title');
     
     // check if it is a vaild AJAXifyable page
-    if(typeof(title) !== "string") {
+    if(typeof(title) !== 'string') {
       // Nope, redirect to it
       document.location = url;
       return;
@@ -219,7 +219,7 @@ $('.phrase').mouseenter(onPhraseHoverStart).mouseleave(onPhraseHoverEnd);
 
 // Unescape HTML Entities
 function unescapeEntities(string) {
-  var d = document.createElement("div");
+  var d = document.createElement('div');
   d.innerHTML = string;
   return d.innerText || d.text || d.textContent;
 }
