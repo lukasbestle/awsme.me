@@ -13,9 +13,9 @@ var delay = 10000;
 var limit = 1; // change probability, 1-10
 var isPhraseHovered = false;
 var scrollDuration = 300;
-var lastUrl;
+var lastUrl = document.location.href;
 var last;
-var initialUrl = document.location;
+var initialUrl = document.location.href;
 var firstPopState = true;
 
 // cache the site URL
@@ -43,7 +43,7 @@ function initInternalLinks () {
 function loadContent (url, pushCurrentState) {
 
   // if we're trying to reload the same url, do nothing
-  if (url === lastUrl) {
+  if (urlsAreEqual(url, lastUrl)) {
     return;
   }
 
@@ -222,6 +222,19 @@ function unescapeEntities(string) {
   var d = document.createElement('div');
   d.innerHTML = string;
   return d.innerText || d.text || d.textContent;
+}
+
+// Check if URLs are equal
+function urlsAreEqual(url1, url2) {
+  if(url1 === url2 ||
+  url1 === url2 + '/' ||
+  url1 + '/' === url2 ||
+  siteURL + url1 == url2 ||
+  url1 === siteURL + url2) {
+    return true;
+  }
+  
+  return false;
 }
 
 // the bootstrap method, should show first quote
