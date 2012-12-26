@@ -229,7 +229,7 @@ function urlsAreEqual(url1, url2) {
   if(url1 === url2 ||
   url1 === url2 + '/' ||
   url1 + '/' === url2 ||
-  siteURL + url1 == url2 ||
+  siteURL + url1 === url2 ||
   url1 === siteURL + url2) {
     return true;
   }
