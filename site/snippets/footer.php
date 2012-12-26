@@ -4,6 +4,7 @@
 </div>
 
   <?php echo js('http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js') ?>
+  <?php echo js('assets/js/prefixfree.min.js') ?>
   <?php echo js('assets/js/scripts.js') ?>
 
   <script type="text/javascript">

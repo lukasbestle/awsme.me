@@ -1,12 +1,427 @@
 /******************************** CSS Resets ********************************/
-@import url("reset.css");
+/* @group Reset */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* @end */
+/* Automatically clear elements for standards-compliant browsers */
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+/* Trigger has-layout for IE compatibility */
+.clearfix {
+  zoom: 1; }
 
 /******************************** Main Styling ********************************/
-@import url("main.css");
+/**
+ * Author: Timothy Achumba
+ * Author URI: http://awsme.me.
+ * Version: 1.0
+ */
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none; }
 
+.selectable * {
+  user-select: text; }
+
+body {
+  background: #b8462b;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Gotham Rounded", "Rounded", sans-serif;
+  padding: 120px 0 30px 100px;
+  font-weight: 200;
+  transition: padding 0.2s linear; }
+
+.button {
+  margin: 20px 0 0 0;
+  display: inline-block;
+  font-size: 18px; }
+
+header {
+  position: relative; }
+  header h1 {
+    font-size: 39px;
+    font-weight: 200;
+    margin: 38px 0 0 185px;
+    position: absolute;
+    line-height: 45px; }
+    header h1 strong {
+      font-weight: 500; }
+    header h1 a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      transition: color 0.2s linear; }
+      header h1 a:hover {
+        color: rgba(255, 255, 255, 0.4); }
+
+.hidden {
+  display: none; }
+
+.avatar {
+  background: url("../images/me.png") center center no-repeat;
+  background-size: 100%;
+  border-radius: 150px;
+  opacity: .5;
+  width: 150px;
+  height: 150px;
+  display: block;
+  float: left;
+  transition: all 0.2s linear; }
+  .avatar:hover {
+    opacity: .6; }
+
+.scribble-wrapper {
+  margin: 50px 0 0 185px;
+  transition: margin 0.2s linear, opacity 0.2s linear; }
+  .scribble-wrapper h1 {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    margin-bottom: 10px; }
+  .scribble-wrapper h2 {
+    font-size: 27px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 200; }
+
+.scribbles {
+  margin: 28px 0 0 0;
+  font-size: 20px; }
+
+.scribble {
+  height: 38px;
+  margin: 0 0 13px 0;
+  font-weight: 400; }
+
+.scribble-date {
+  position: absolute;
+  margin: 0 0 0 -86px;
+  color: rgba(255, 255, 255, 0.66); }
+
+.scribble-title, .button {
+  font-weight: 200;
+  padding: 10px 15px 8px 15px;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.66);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s linear; }
+  .scribble-title:hover, .button:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8); }
+
+.scribble-word-count {
+  font-size: 15px;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 0 0 15px; }
+
+.actual-scribble {
+  width: 600px; }
+  .actual-scribble h1 {
+    font-size: 30px;
+    font-weight: 400; }
+  .actual-scribble h3 {
+    padding: 8px 0 4px 0;
+    font-size: 19px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6); }
+  .actual-scribble p {
+    font-weight: 300;
+    font-family: "proxima-nova" ,sans-serif;
+    font-size: 17px;
+    line-height: 26px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px; }
+    .actual-scribble p a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.2s linear; }
+      .actual-scribble p a:hover {
+        color: white;
+        border-bottom: 1px dotted white; }
+  .actual-scribble ul li {
+    list-style: circle;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 10px 0; }
+
+.tweet-post {
+  font-weight: 400;
+  position: relative;
+  margin: 40px 0 0 0;
+  font-size: 20px;
+  line-height: 27px;
+  color: rgba(255, 255, 255, 0.5); }
+  .tweet-post a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s linear; }
+    .tweet-post a:hover {
+      color: white;
+      border-bottom: 1px dotted white; }
+
+.post-navigation {
+  margin: 30px 0 0 0;
+  font-size: 18px;
+  padding: 10px 15px 8px 15px;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.66);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s linear;
+  display: inline-block; }
+  .post-navigation:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8); }
+
+.footer {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 100px 0 0 185px;
+  font-weight: 400;
+  transition: margin 0.2s linear; }
+  .footer a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s linear; }
+    .footer a:hover {
+      color: white; }
+  .footer > span {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s linear;
+    cursor: pointer; }
+    .footer > span:hover {
+      color: white; }
+      .footer > span:hover .contributors {
+        opacity: 1;
+        margin-top: -105px; }
+
+.contributors {
+  text-align: center;
+  position: absolute;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.66);
+  border-radius: 4px;
+  line-height: 20px;
+  margin: -1000000px 0 0 -105px;
+  opacity: 0;
+  transition: opacity 0.2s linear; }
+  .contributors:after {
+    position: absolute;
+    display: inline-block;
+    content: " ";
+    width: 0;
+    height: 0;
+    margin: 30px 0 0 -62px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(0, 0, 0, 0.25); }
+
+@media all and (max-width: 890px) and (min-width: 811px) {
+  body {
+    padding: 120px 0 30px 20px !important; } }
+@media all and (max-width: 810px) and (min-width: 0px) {
+  body {
+    padding: 120px 20px 30px 20px !important; }
+
+  .scribble-date {
+    display: none; }
+
+  .scribble-wrapper {
+    margin: 50px 0 0 0 !important; }
+
+  .footer {
+    margin: 100px 0 0 0 !important; } }
+@media all and (max-width: 630px) and (min-width: 0px) {
+  body {
+    padding: 50px 20px 20px 20px !important; }
+
+  .actual-scribble {
+    width: 100%; }
+
+  .avatar {
+    border-radius: 100px;
+    width: 100px;
+    height: 100px; }
+
+  header h1 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 200;
+    margin: 28px 0 0 120px;
+    position: absolute; }
+
+  .footer {
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 50px !important; }
+
+  .footer span:hover .contributors {
+    opacity: 0 !important;
+    margin-top: -11005px !important; }
+
+  .footer span {
+    color: rgba(255, 255, 255, 0.7) !important; } }
 /******************************** CSS3 Animations ********************************/
-@import url("animation.css");
+.animate {
+  animation-fill-mode: both;
+  animation-duration: 1s; }
+
+.delay {
+  animation-delay: 1s; }
+
+@keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px); }
+
+  60% {
+    transform: translateY(-20px); }
+
+  80% {
+    transform: translateY(10px); }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+.bounceInUp {
+  opacity: 1;
+  animation-name: bounceInUp; }
+
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-60px); }
+
+  60% {
+    transform: translateY(20px); }
+
+  80% {
+    transform: translateY(-10px); }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+.bounceInDown {
+  opacity: 1;
+  animation-name: bounceInDown; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+.fadeIn {
+  animation-name: fadeIn; }
 
 /******************************** Typography ********************************/
-@import url("typography.css");
+@font-face {
+  font-family: 'Rounded';
+  src: url("../fonts/rounded/rndlight.eot");
+  src: url("../fonts/rounded/rndlight.eot?iefix") format("eot"), url("../fonts/rounded/rndlight.woff") format("woff"), url("../fonts/rounded/rndlight.ttf") format("truetype"), url("../fonts/rounded/rndlight.svg#webfonthOIcM5wm") format("svg");
+  font-weight: 200;
+  font-style: normal; }
 
+@font-face {
+  font-family: 'Rounded';
+  src: url("../fonts/rounded/rndlightita.eot");
+  src: url("../fonts/rounded/rndlightita.eot?iefix") format("eot"), url("../fonts/rounded/rndlightita.woff") format("woff"), url("../fonts/rounded/rndlightita.ttf") format("truetype"), url("../fonts/rounded/rndlightita.svg#webfonthOIcM5wm") format("svg");
+  font-weight: 200;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Rounded';
+  src: url("../fonts/rounded/rndbook.eot");
+  src: url("../fonts/rounded/rndbook.eot?iefix") format("eot"), url("../fonts/rounded/rndbook.woff") format("woff"), url("../fonts/rounded/rndbook.ttf") format("truetype"), url("../fonts/rounded/rndbook.svg#webfonthOIcM5wm") format("svg");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Rounded';
+  src: url("../fonts/rounded/rndbookita.eot");
+  src: url("../fonts/rounded/rndbookita.eot?iefix") format("eot"), url("../fonts/rounded/rndbookita.woff") format("woff"), url("../fonts/rounded/rndbookita.ttf") format("truetype"), url("../fonts/rounded/rndbookita.svg#webfonthOIcM5wm") format("svg");
+  font-weight: 400;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Rounded';
+  src: url("../fonts/rounded/rndmedium.eot");
+  src: url("../fonts/rounded/rndmedium.eot?iefix") format("eot"), url("../fonts/rounded/rndmedium.woff") format("woff"), url("../fonts/rounded/rndmedium.ttf") format("truetype"), url("../fonts/rounded/rndmedium.svg#webfonthOIcM5wm") format("svg");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Rounded';
+  src: url("../fonts/rounded/rndmediumita.eot");
+  src: url("../fonts/rounded/rndmediumita.eot?iefix") format("eot"), url("../fonts/rounded/rndmediumita.woff") format("woff"), url("../fonts/rounded/rndmediumita.ttf") format("truetype"), url("../fonts/rounded/rndmediumita.svg#webfonthOIcM5wm") format("svg");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Rounded';
+  src: url("../fonts/rounded/rndbold.eot");
+  src: url("../fonts/rounded/rndbold.eot?iefix") format("eot"), url("../fonts/rounded/rndbold.woff") format("woff"), url("../fonts/rounded/rndbold.ttf") format("truetype"), url("../fonts/rounded/rndbold.svg#webfonthOIcM5wm") format("svg");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Rounded';
+  src: url("../fonts/rounded/rndboldita.eot");
+  src: url("../fonts/rounded/rndboldita.eot?iefix") format("eot"), url("../fonts/rounded/rndboldita.woff") format("woff"), url("../fonts/rounded/rndboldita.ttf") format("truetype"), url("../fonts/rounded/rndboldita.svg#webfonthOIcM5wm") format("svg");
+  font-weight: 700;
+  font-style: italic; }
