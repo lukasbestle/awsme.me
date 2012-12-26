@@ -1,3 +1,5 @@
+
+
 var phrases = [
   'I wish you all a<br/><strong>Merry Christmas.</strong>',
   'I go by the name<br/><strong>Timothy.</strong>',
@@ -78,6 +80,7 @@ function loadContent (url) {
       }
       else {
         showContent();
+        $("html, body").delay(500).animate({ scrollTop: $('#post-top').offset().top}, 500);
       }
 
       // update the window/tab title
@@ -88,6 +91,7 @@ function loadContent (url) {
       hasLoadedOnce = true;
     });
   });
+
 }
 
 // click event handler for all links
@@ -231,3 +235,6 @@ function init () {
 
 // run the bootstrap initializer when dom is ready
 $(init);
+
+// scroll to the content bitches
+

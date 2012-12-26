@@ -2,7 +2,7 @@
 <?php snippet('header') ?>
 <?php } else { header("X-Title: " . $site->title() . " &raquo; " . $page->title()); } ?>
 
-  <article class="post">
+  <article class="post" id="post-top">
   	<div class="selectable">
     	<h1><?php echo html($page->title()) ?></h1>
     	<?php echo kirbytext($page->text()) ?>
@@ -13,6 +13,12 @@
     <a class="post-navigation button" href="<?php echo url() ?>">Back</a>
 
   </article>
+
+  <!--
+<script type="text/javascript">
+    $("html, body").delay(500).animate({ scrollTop: $('#post-top').offset().top}, 500);
+  </script>
+-->
 
 <?php if(!r::is_ajax()) { ?>
 <?php snippet('footer') ?>
