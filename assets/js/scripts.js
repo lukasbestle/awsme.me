@@ -30,11 +30,11 @@ function initInternalLinks () {
 
   // the handler that makes back and forward buttons work
   $(window).on('popstate', function (e) {
-  	if(document.location == initialUrl && firstPopState) {
-	  	firstPopState = false;
-	  	return;
-  	}
-  	
+    if(document.location == initialUrl && firstPopState) {
+      firstPopState = false;
+      return;
+    }
+    
     loadContent(location.pathname + location.search);
   });
 }
@@ -55,24 +55,24 @@ function loadContent (url, pushCurrentState) {
   
   // load the new content
   $.get(url, function (data, status, xhr) {
-	  
-	  // get the title from the response headers
-	  var title = xhr.getResponseHeader('X-Title');
-	  
-	  // check if it is a vaild AJAXifyable page
-	  if(typeof(title) !== "string") {
-	  	// Nope, redirect to it
-	  	document.location = url;
-	  	return;
-	  }
+    
+    // get the title from the response headers
+    var title = xhr.getResponseHeader('X-Title');
+    
+    // check if it is a vaild AJAXifyable page
+    if(typeof(title) !== "string") {
+      // Nope, redirect to it
+      document.location = url;
+      return;
+    }
 
     function showContent () {
       // fade out the current content
       $content.css('opacity', 0);
       
       setTimeout(function() {
-      	// put the content to the dom and fade it in
-      	$content.html(data).css('opacity', 1);
+        // put the content to the dom and fade it in
+        $content.html(data).css('opacity', 1);
       }, 300);
     }
 
@@ -90,8 +90,8 @@ function loadContent (url, pushCurrentState) {
     document.title = unescapeEntities(title);
     
     if(pushCurrentState) {
-    	// push the current url to history
-    	window.history.pushState(null, null, url);
+      // push the current url to history
+      window.history.pushState(null, null, url);
     }
   });
 }
@@ -231,7 +231,7 @@ function init () {
   setInterval(update, delay);
 
   // When launched from Home Screen always go to the homepage
-	if(window.navigator.standalone && window.location.pathname != "/") loadContent("/", true);
+  if(window.navigator.standalone && window.location.pathname != "/") loadContent("/", true);
 }
 
 // run the bootstrap initializer when dom is ready
@@ -239,7 +239,7 @@ $(init);
 
 // Unescape HTML Entities
 function unescapeEntities(string) {
-	var d = document.createElement("div");
-	d.innerHTML = string;
-	return d.innerText || d.text || d.textContent;
+  var d = document.createElement("div");
+  d.innerHTML = string;
+  return d.innerText || d.text || d.textContent;
 }
