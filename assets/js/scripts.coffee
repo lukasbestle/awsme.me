@@ -42,7 +42,7 @@ initInternalLinks = ()->
 loadContent = (url, pushCurrentState)->
 
   # if we're trying to reload the same url, do nothing
-  if (urlsAreEqual(url, lastUrl))
+  if (areUrlsEqual(url, lastUrl))
   	return;
 
   # remember to save this value!
@@ -202,7 +202,7 @@ unescapeEntities = (string)->
   return d.innerText || d.text || d.textContent;
 
 # Check if URLs are equal
-urlsAreEqual = (url1, url2)->
+areUrlsEqual = (url1, url2)->
   if(url1 == url2 ||
   url1 == url2 + '/' ||
   url1 + '/' == url2 ||
