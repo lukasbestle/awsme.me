@@ -47,7 +47,7 @@
     return $.get(url, function(data, status, xhr) {
       var showContent, title;
       title = xhr.getResponseHeader('X-Title');
-      if (typeof title !== "string") {
+      if (typeof title !== 'string') {
         document.location = url;
         return;
       }
@@ -75,12 +75,12 @@
     var $this, isInternalLink, targetUrl;
     $this = $(this);
     targetUrl = $this.attr('href');
-    isInternalLink = targetUrl.indexOf(siteURL) >= 0 || targetUrl.substring(0, 1) === "/";
+    isInternalLink = targetUrl.indexOf(siteURL) >= 0 || targetUrl.substring(0, 1) === '/';
     if (window.history && history.pushState && isInternalLink) {
-      loadContent($(this).attr('href').replace(siteURL, ''), true);
+      loadContent($this.attr('href').replace(siteURL, ''), true);
       return false;
     } else if (!isInternalLink) {
-      return $(this).attr('target', '_blank');
+      return $this.attr('target', '_blank');
     }
   };
 
@@ -145,22 +145,22 @@
 
   $('.phrase').mouseenter(onPhraseHoverStart).mouseleave(onPhraseHoverEnd);
 
+  unescapeEntities = function(string) {
+    var d;
+    d = document.createElement('div');
+    d.innerHTML = string;
+    return d.innerText || d.text || d.textContent;
+  };
+
   init = function() {
     initInternalLinks();
     update(0);
     setInterval(update, delay);
-    if (window.navigator.standalone && window.location.pathname !== "/") {
-      return loadContent("/", true);
+    if (window.navigator.standalone && window.location.pathname !== '/') {
+      return loadContent('/', true);
     }
   };
 
   $(init);
-
-  unescapeEntities = function(string) {
-    var d;
-    d = document.createElement("div");
-    d.innerHTML = string;
-    return d.innerText || d.text || d.textContent;
-  };
 
 }).call(this);

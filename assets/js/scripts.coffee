@@ -58,7 +58,7 @@ loadContent = (url, pushCurrentState)->
     title = xhr.getResponseHeader('X-Title');
     
     # check if it is a vaild AJAXifyable page
-    if(typeof(title) != "string")
+    if(typeof(title) != 'string')
       # Nope, redirect to it
       document.location = url;
       return;
@@ -94,20 +94,20 @@ onClickLink = ()->
   # cache the jquery object, best practice for performance
   $this = $(this);
   targetUrl = $this.attr('href');
-  isInternalLink = targetUrl.indexOf(siteURL) >= 0 || targetUrl.substring(0, 1) == "/";
+  isInternalLink = targetUrl.indexOf(siteURL) >= 0 || targetUrl.substring(0, 1) == '/';
 
   # if pushState is supported, use it for internal links
   if (window.history && history.pushState && isInternalLink)
 
     # load content
-    loadContent($(this).attr('href').replace(siteURL, ''), true);
+    loadContent($this.attr('href').replace(siteURL, ''), true);
 
     # return false to avoid default <a> #click behavior
     return false;
     
   # for external links
   else if (!isInternalLink)
-    $(this).attr('target', '_blank');
+    $this.attr('target', '_blank');
 
   # internal links, when pushState is not supported,
   # will work as normal links...
@@ -195,6 +195,12 @@ onPhraseHoverEnd = ()->
 # could also user .hover(start, end) but it's deprecated in v 1.9
 $('.phrase').mouseenter(onPhraseHoverStart).mouseleave(onPhraseHoverEnd);
 
+# Unescape HTML Entities
+unescapeEntities = (string)->
+  d = document.createElement('div');
+  d.innerHTML = string;
+  return d.innerText || d.text || d.textContent;
+
 # the bootstrap method, should show first quote
 # and then schedule the random updates
 init = ()->
@@ -209,14 +215,8 @@ init = ()->
   setInterval(update, delay);
 
   # When launched from Home Screen always go to the homepage
-  if(window.navigator.standalone && window.location.pathname != "/")
-  	loadContent("/", true);
+  if(window.navigator.standalone && window.location.pathname != '/')
+  	loadContent('/', true);
 
 # run the bootstrap initializer when dom is ready
 $(init);
-
-# Unescape HTML Entities
-unescapeEntities = (string)->
-  d = document.createElement("div");
-  d.innerHTML = string;
-  return d.innerText || d.text || d.textContent;
