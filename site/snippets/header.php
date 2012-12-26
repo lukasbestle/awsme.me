@@ -14,7 +14,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="assets/images/me.png">
   <link rel="apple-touch-icon" href="assets/images/me.png">
 
-  <link rel="alternate" type="application/rss+xml" href="<?php echo url('feed') ?>" title="<?php echo html($pages->find('feed')->title()) ?>" />
+  <link rel="alternate" type="application/rss+xml" href="<?php echo url('feed') ?>" title="The Thought of Timothy, scribbled in pixels." />
 
   <?php echo css('assets/styles/styles.css') ?>
 
