@@ -2,7 +2,7 @@
 (function() {
   "use strict";
 
-  var delay, firstPopState, getPhrase, init, initInternalLinks, initialUrl, isPhraseHovered, last, lastUrl, limit, loadContent, onClickLink, onPhraseHoverEnd, onPhraseHoverStart, phrases, scrollDuration, siteURL, stack, unescapeEntities, update;
+  var delay, firstPopState, getPhrase, init, initInternalLinks, initialUrl, isPhraseHovered, last, lastUrl, limit, loadContent, onClickLink, onPhraseHoverEnd, onPhraseHoverStart, phrases, scrollDuration, siteURL, stack, unescapeEntities, update, urlsAreEqual;
 
   phrases = ['I go by the name<br/><strong>Timothy.</strong>', 'I push pixels at<br/><strong><a target="_blank" href="http:#6wunderkinder.com">6Wunderkinder</a>.</strong>', 'I play a lot on<br/><strong><a target="_blank" class="dribbble" href="http:#dribbble.com/iam_timm">dribbble</a>.</strong>', 'I write 140<br/>character <strong><a target="_blank" class="twitter" href="http:#twitter.com/iam_timm">posts</a>.</strong>', 'I take blurry<br/>filtered <strong><a target="_blank" class="instagram" href="http:#instagram.com/iam_timm">photos</a>.</strong>', 'I listen to music<br/>on <strong><a target="_blank" class="spotify" href="http:#open.spotify.com/user/thech053none">Spotify</a>.</strong>', 'I make mixes on<br/><strong><a target="_blank" class="designersmx" href="http:#designers.mx/member/profile/iam_timm/mixes">Designers.MX</a>.</strong>'];
 
@@ -16,11 +16,11 @@
 
   scrollDuration = 300;
 
-  lastUrl = document.location.pathname;
+  lastUrl = document.location.href;
 
   last = phrases[0];
 
-  initialUrl = document.location;
+  initialUrl = document.location.href;
 
   firstPopState = true;
 
@@ -39,7 +39,7 @@
 
   loadContent = function(url, pushCurrentState) {
     var $content;
-    if (url === lastUrl) {
+    if (urlsAreEqual(url, lastUrl)) {
       return;
     }
     lastUrl = url;
@@ -150,6 +150,13 @@
     d = document.createElement('div');
     d.innerHTML = string;
     return d.innerText || d.text || d.textContent;
+  };
+
+  urlsAreEqual = function(url1, url2) {
+    if (url1 === url2 || url1 === url2 + '/' || url1 + '/' === url2 || siteURL + url1 === url2 || url1 === siteURL + url2) {
+      return true;
+    }
+    return false;
   };
 
   init = function() {

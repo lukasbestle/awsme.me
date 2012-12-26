@@ -14,9 +14,9 @@ delay = 10000;
 limit = 1; # change probability, 1-10
 isPhraseHovered = false;
 scrollDuration = 300;
-lastUrl = document.location.pathname;
+lastUrl = document.location.href;
 last = phrases[0];
-initialUrl = document.location;
+initialUrl = document.location.href;
 firstPopState = true;
 
 # cache the site URL
@@ -42,8 +42,8 @@ initInternalLinks = ()->
 loadContent = (url, pushCurrentState)->
 
   # if we're trying to reload the same url, do nothing
-  if (url == lastUrl)
-  	return
+  if (urlsAreEqual(url, lastUrl))
+  	return;
 
   # remember to save this value!
   lastUrl = url;
@@ -200,6 +200,17 @@ unescapeEntities = (string)->
   d = document.createElement('div');
   d.innerHTML = string;
   return d.innerText || d.text || d.textContent;
+
+# Check if URLs are equal
+urlsAreEqual = (url1, url2)->
+  if(url1 == url2 ||
+  url1 == url2 + '/' ||
+  url1 + '/' == url2 ||
+  siteURL + url1 == url2 ||
+  url1 == siteURL + url2)
+    return true;
+  
+  return false;
 
 # the bootstrap method, should show first quote
 # and then schedule the random updates
