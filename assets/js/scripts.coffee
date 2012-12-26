@@ -1,4 +1,4 @@
-
+"use strict";
 phrases = [
   'I go by the name<br/><strong>Timothy.</strong>',
   'I push pixels at<br/><strong><a target="_blank" href="http:#6wunderkinder.com">6Wunderkinder</a>.</strong>',
@@ -186,8 +186,10 @@ update = (index)->
 # hover event handlers
 onPhraseHoverStart = ()->
   isPhraseHovered = true;
+  return;
 onPhraseHoverEnd = ()->
   isPhraseHovered = false;
+  return;
 
 # bind event handlers to mouseenter and mouseleave
 # could also user .hover(start, end) but it's deprecated in v 1.9
