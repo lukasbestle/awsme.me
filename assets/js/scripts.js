@@ -43,7 +43,7 @@ function initInternalLinks () {
 function loadContent (url, pushCurrentState) {
 
   // if we're trying to reload the same url, do nothing
-  if (urlsAreEqual(url, lastUrl)) {
+  if (areUrlsEqual(url, lastUrl)) {
     return;
   }
 
@@ -225,7 +225,7 @@ function unescapeEntities(string) {
 }
 
 // Check if URLs are equal
-function urlsAreEqual(url1, url2) {
+function areUrlsEqual(url1, url2) {
   if(url1 === url2 ||
   url1 === url2 + '/' ||
   url1 + '/' === url2 ||
