@@ -1,7 +1,7 @@
     </section>
 
     <div class="footer">
-      Designed and developed by <a href="http://twitter.com/iam_timm">Timothy ッ</a> with help from some <span>contributors.</span>
+      Made by <a href="http://twitter.com/iam_timm">Timothy ッ</a> with help from some <a href="http://awsme.me/contributors">contributors</a>.
     </div>
 
   </div>

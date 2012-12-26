@@ -1,0 +1,12 @@
+Title: Contributors
+----
+Text: As you may or may not know, development isn't my strongest skill, especially when it comes to Javacscript & PHP and this blog uses quite a fair bit of both. So, I'm really greatful to everyone for their help! Check them all out on twitter.
+
+(link: http://twitter.com/adamrenklint text: Adam Renklint class: contributor)
+(link: http://twitter.com/iDuuck text: Dominik Schmidt class: contributor)
+(link: http://twitter.com/vis7mac text: Lukas Bestle class: contributor)
+
+If you'd like to contribute all you need to do is fork the repo on (link: https://github.com/iamtimm/awsme.me text: GitHub) and open a pull request.
+
+(link: / text: Go Home class: button home)
+----

@@ -20,7 +20,7 @@
 
 </head>
 
-<body onload="setTimeout(function() { window.scrollTo(0, 1) }, 200);" >
+<body>
 
   <div class="page-wrapper">
 
