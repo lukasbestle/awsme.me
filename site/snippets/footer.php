@@ -1,7 +1,7 @@
     </section>
 
     <div class="footer">
-      Made by <a href="http://twitter.com/iam_timm">Timothy ッ</a> with help from some <a href="http://awsme.me/contributors">contributors</a>.
+      Made by <a href="http://twitter.com/iam_timm">Timothy ッ</a> with help from some <a href="<?php echo url("contributors") ?>">contributors</a>.
     </div>
 
   </div>

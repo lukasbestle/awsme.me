@@ -13,10 +13,11 @@ var stack = [];
 var delay = 10000;
 var limit = 1; // change probability, 1-10
 var isPhraseHovered = false;
-var hasLoadedOnce = false;
 var scrollDuration = 300;
-var lastUrl;
+var lastUrl = document.location.href;
 var last;
+var initialUrl = document.location.href;
+var firstPopState = true;
 
 // cache the site URL
 var siteURL = window.location.origin.toString();
@@ -30,15 +31,19 @@ function initInternalLinks () {
 
   // the handler that makes back and forward buttons work
   $(window).on('popstate', function (e) {
+    if(document.location == initialUrl && firstPopState) {
+      firstPopState = false;
+      return;
+    }
+
     loadContent(location.pathname + location.search);
   });
 }
 
 // grab the content from a url and push to DOM
-function loadContent (url) {
-
+function loadContent (url, pushCurrentState) {
   // if we're trying to reload the same url, do nothing
-  if (url === lastUrl) {
+  if (areUrlsEqual(url, lastUrl)) {
     return;
   }
 
@@ -48,46 +53,52 @@ function loadContent (url) {
   // repetative comments, but it's important - cache selectors!
   var $content = $('.content');
 
-  // use a deferred to wait for animation to be done
-  var animationDeferred = new $.Deferred();
-  window.setTimeout(animationDeferred.resolve, 200);
-
-  // fade out the current content,
-  // if it isn't the first load
-  if (hasLoadedOnce) {
-    $content.css('opacity', 0);
-  }
-
   // load the new content
   $.get(url, function (data, status, xhr) {
 
-    // when animation is done and content is loaded
-    animationDeferred.done(function () {
+    // get the title from the response headers
+    var title = xhr.getResponseHeader('X-Title');
 
-      function showContent () {
+    // check if it is a vaild AJAXifyable page
+    if(typeof(title) !== 'string') {
+      // Nope, redirect to it
+      document.location = url;
+      return;
+    }
 
+    function showContent () {
+      // fade out the current content
+      $content.css('opacity', 0);
+
+      setTimeout(function() {
         // put the content to the dom and fade it in
         $content.html(data).css('opacity', 1);
-      }
 
-      // if the visitor has scrolled, scroll back to the top
-      if (window.pageYOffset > 0) {
-        $('body').animate({
-          'scrollTop': 0
-        }, scrollDuration, showContent);
-      }
-      else {
-        showContent();
-        $("html, body").delay(500).animate({ scrollTop: $('#post-top').offset().top}, 500);
-      }
+        // Scroll to the top of the post for better reading experience
+        scrollTopOfPost();
 
-      // update the window/tab title
-      document.title = xhr.getResponseHeader('X-Title');
+        // set a cookie to remember not to scroll again when reloading
+        setCookie();
+      }, 300);
+    }
 
-      // set this to true, to avoid animations
-      // where we don't want them
-      hasLoadedOnce = true;
-    });
+    // if the visitor has scrolled, scroll back to the top
+    if (window.pageYOffset > 0) {
+      $('body').animate({
+        'scrollTop': 0
+      }, scrollDuration, showContent);
+    }
+    else {
+      showContent();
+    }
+
+    // update the window/tab title
+    document.title = unescapeEntities(title);
+
+    if(pushCurrentState) {
+      // push the current url to history
+      window.history.pushState(null, null, url);
+    }
   });
 }
 
@@ -97,24 +108,20 @@ function onClickLink () {
   // cache the jquery object, best practice for performance
   var $this = $(this);
   var targetUrl = $this.attr('href');
-  var isInternalLink = targetUrl.indexOf(siteURL) >= 0;
+  var isInternalLink = targetUrl.indexOf(siteURL) >= 0 || targetUrl.substring(0, 1) === '/';
 
   // if pushState is supported, use it for internal links
   if (window.history && history.pushState && isInternalLink) {
 
     // load content
-    loadContent($(this).attr('href').replace(siteURL, ''));
-
-    // push the current url to history
-    window.history.pushState(null, null, $(this).attr('href'));
-    wasHistoryEdited = true;
+    loadContent($this.attr('href').replace(siteURL, ''), true);
 
     // return false to avoid default <a> #click behavior
     return false;
   }
   // for external links
   else if (!isInternalLink) {
-    $(this).attr('target', '_blank');
+    $this.attr('target', '_blank');
   }
 
   // internal links, when pushState is not supported,
@@ -216,6 +223,53 @@ function onPhraseHoverEnd () {
 // could also user .hover(start, end) but it's deprecated in v 1.9
 $('.phrase').mouseenter(onPhraseHoverStart).mouseleave(onPhraseHoverEnd);
 
+// Unescape HTML Entities
+function unescapeEntities(string) {
+  var d = document.createElement('div');
+  d.innerHTML = string;
+  return d.innerText || d.text || d.textContent;
+}
+
+// Check if URLs are equal
+function areUrlsEqual(url1, url2) {
+  if(url1 === url2 ||
+  url1 === url2 + '/' ||
+  url1 + '/' === url2 ||
+  siteURL + url1 === url2 ||
+  url1 === siteURL + url2) {
+    return true;
+  }
+
+  return false;
+}
+
+// Scroll to the top of the post for better reading experience
+function scrollTopOfPost () {
+	if(hasPageRefreshed()) {
+		return;
+	}
+
+  var $postTop = $('#post-top');
+  if($postTop.length === 1) {
+    $('html, body').delay(200).animate({ scrollTop: $postTop.offset().top}, 500);
+  }
+}
+
+// Set a cookie for the current URL to prevent scrolling when refreshing
+function setCookie () {
+	document.cookie = 'lastPage=' + document.location.href;
+}
+
+// Check if page has been refreshed
+function hasPageRefreshed () {
+	var cookie = document.cookie;
+	if(!cookie || cookie.indexOf('lastPage') === -1 || cookie.substring(cookie.indexOf('lastPage') + 9, cookie.indexOf('; ', cookie.indexOf('lastPage') + 9)) == document.location.href) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 // the bootstrap method, should show first quote
 // and then schedule the random updates
 function init () {
@@ -228,6 +282,17 @@ function init () {
 
   // and schedule the updates
   setInterval(update, delay);
+
+  // When launched from Home Screen always go to the homepage
+  if(window.navigator.standalone && window.location.pathname != '/') {
+    loadContent('/', true);
+  }
+
+  // Scroll to the top of the post for better reading experience
+  scrollTopOfPost();
+
+  // Set a cookie for the current page to check if page refreshed
+  setCookie();
 }
 
 // run the bootstrap initializer when dom is ready
