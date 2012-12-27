@@ -9,4 +9,3 @@ Text: As you may or may not know, development isn't my strongest skill, especial
 If you'd like to contribute all you need to do is fork the repo on (link: https://github.com/iamtimm/awsme.me text: GitHub) and open a pull request.
 
 (link: / text: Go Home class: button home)
-----
