@@ -27,7 +27,7 @@
   <div class="page-wrapper">
 
     <header>
-      <a href="<?php echo url() ?>" class="avatar"></a>
+      <a href="<?php echo url() ?>" class="avatar animate fadeIn"></a>
       <h1 class="phrase animate hidden"></h1>
       <div class="clearfix"></div>
     </header>

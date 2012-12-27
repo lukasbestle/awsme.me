@@ -198,7 +198,7 @@
         opacity:0;
     }
     to {
-        opacity:1;
+        opacity:0.5;
     }
 }
 @-moz-keyframes fadeIn {
@@ -206,7 +206,7 @@
         opacity:0;
     }
     to {
-        opacity:1;
+        opacity:0.5;
     }
 }
 @-webkit-keyframes fadeIn {
@@ -214,7 +214,7 @@
         opacity:0;
     }
     to {
-        opacity:1;
+        opacity:0.5;
     }
 }
 @-o-keyframes fadeIn {
@@ -222,7 +222,7 @@
         opacity:0;
     }
     to {
-        opacity: 1;
+        opacity: 0.5;
     }
 }
 

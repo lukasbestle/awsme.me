@@ -1,11 +1,12 @@
 var phrases = [
   'I wish you all a<br/><strong>Merry Christmas.</strong>',
   'I go by the name<br/><strong>Timothy.</strong>',
-  'I push pixels at<br/><strong><a target="_blank" href="http://6wunderkinder.com">6Wunderkinder</a>.</strong>',
-  'I play a lot on<br/><strong><a target="_blank" class="dribbble" href="http://dribbble.com/iam_timm">dribbble</a>.</strong>',
-  'I write 140<br/>character <strong><a target="_blank" class="twitter" href="http://twitter.com/iam_timm">posts</a>.</strong>',
-  'I take blurry,<br/>filtered <strong><a target="_blank" class="instagram" href="http://instagram.com/iam_timm">photos</a>.</strong>',
-  'I listen to music<br/>on <strong><a target="_blank" class="spotify" href="http://open.spotify.com/user/thech053none">Spotify</a>.</strong>',
+  'I design things at<br/><strong><a target="_blank" href="http://6wunderkinder.com">6Wunderkinder</a>.</strong>',
+  'I shoot pixels<br/>on <strong><a target="_blank" class="dribbble" href="http://dribbble.com/iam_timm">Dribbble</a>.</strong>',
+  'I share stuff<br/>all over <strong><a target="_blank" class="twitter" href="http://twitter.com/iam_timm">Twitter</a>.</strong>',
+  'I take photos<br/>with <strong><a target="_blank" class="instagram" href="http://instagram.com/iam_timm">Instagram</a>.</strong>',
+  'I listen to tunes<br/>on <strong><a target="_blank" class="spotify" href="http://open.spotify.com/user/thech053none">Spotify</a>.</strong>',
+  'I push to master<br/>on <strong><a target="_blank" class="github" href="https://github.com/iamtimm">GitHub</a>.</strong>',
   'I make mixes on<br/><strong><a target="_blank" class="designersmx" href="http://designers.mx/member/profile/iam_timm/mixes">Designers.MX</a>.</strong>'
 ];
 
