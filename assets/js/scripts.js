@@ -1,9 +1,10 @@
 var phrases = [
+  'I wish you all a<br/><strong>Merry Christmas.</strong>',
   'I go by the name<br/><strong>Timothy.</strong>',
   'I push pixels at<br/><strong><a target="_blank" href="http://6wunderkinder.com">6Wunderkinder</a>.</strong>',
   'I play a lot on<br/><strong><a target="_blank" class="dribbble" href="http://dribbble.com/iam_timm">dribbble</a>.</strong>',
   'I write 140<br/>character <strong><a target="_blank" class="twitter" href="http://twitter.com/iam_timm">posts</a>.</strong>',
-  'I take blurry<br/>filtered <strong><a target="_blank" class="instagram" href="http://instagram.com/iam_timm">photos</a>.</strong>',
+  'I take blurry,<br/>filtered <strong><a target="_blank" class="instagram" href="http://instagram.com/iam_timm">photos</a>.</strong>',
   'I listen to music<br/>on <strong><a target="_blank" class="spotify" href="http://open.spotify.com/user/thech053none">Spotify</a>.</strong>',
   'I make mixes on<br/><strong><a target="_blank" class="designersmx" href="http://designers.mx/member/profile/iam_timm/mixes">Designers.MX</a>.</strong>'
 ];
@@ -73,6 +74,9 @@ function loadContent (url, pushCurrentState) {
       setTimeout(function() {
         // put the content to the dom and fade it in
         $content.html(data).css('opacity', 1);
+        
+        // Scroll to the top of the post for better reading experience
+        scrollTopOfPost();
       }, 300);
     }
 
@@ -237,6 +241,14 @@ function areUrlsEqual(url1, url2) {
   return false;
 }
 
+// Scroll to the top of the post for better reading experience
+function scrollTopOfPost() {
+  var $postTop = $('#post-top');
+  if($postTop.length === 1) {
+    $('html, body').delay(200).animate({ scrollTop: $postTop.offset().top}, 500);
+  }
+}
+
 // the bootstrap method, should show first quote
 // and then schedule the random updates
 function init () {
@@ -254,6 +266,9 @@ function init () {
   if(window.navigator.standalone && window.location.pathname != '/') {
     loadContent('/', true);
   }
+  
+  // Scroll to the top of the post for better reading experience
+  scrollTopOfPost();
 }
 
 // run the bootstrap initializer when dom is ready

@@ -1,14 +1,20 @@
 <?php if(!r::is_ajax()) { ?>
 <?php snippet('header') ?>
 
-<section class="content blog scribble-wrapper">
-<?php } else { header("X-Title: " . $site->title() . " &raquo; " . $page->title()); } ?>
 
-  <h2><?php echo html($page->title()) ?></h2>
-  <p class="body-text"><?php echo kirbytext($page->text()) ?></p>
+  <?php }  else { header("X-Title: " . $site->title() . " &raquo; " . $page->title()); } ?>
+  <div class="body-content">
 
-<?php if(!r::is_ajax()) { ?>
-</section>
+    <article>
+      <h2><?php echo html($page->title()) ?></h2>
+      <div class="body-text">
+        <?php echo kirbytext($page->text()) ?>
+      </div>
+    </article>
+
+  </div>
+  <?php if(!r::is_ajax()) { ?>
+
 
 <?php snippet('footer') ?>
 <?php } ?>

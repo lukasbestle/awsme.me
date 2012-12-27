@@ -181,7 +181,7 @@ texts which are parsed by kirbytext()
 */
 
 // smartypants
-c::set('smartypants', false);
+c::set('smartypants', true);
 c::set('smartypants.attr', 1);
 c::set('smartypants.doublequote.open', '&#8220;');
 c::set('smartypants.doublequote.close', '&#8221;');
@@ -263,7 +263,7 @@ c::set('cache.ignore', array('search', 'some/other/uri/to/ignore'));
 c::set('cache', false);
 c::set('cache.autoupdate', true);
 c::set('cache.data', true);
-c::set('cache.html', true);
+c::set('cache.html', false);
 c::set('cache.ignore', array('sitemap'));
 
 
