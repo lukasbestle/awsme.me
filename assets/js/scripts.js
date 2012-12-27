@@ -263,7 +263,11 @@ function setCookie () {
 // Check if page has been refreshed
 function hasPageRefreshed () {
 	var cookie = document.cookie;
-	if(!cookie || cookie.indexOf('lastPage') === -1 || cookie.substring(cookie.indexOf('lastPage') + 9, cookie.indexOf('; ', cookie.indexOf('lastPage') + 9)) == document.location.href) {
+	if(!cookie ||
+     cookie.indexOf('lastPage') === -1 ||
+     (cookie.indexOf(';', cookie.indexOf('lastPage')) === -1 && cookie.substring(cookie.indexOf('lastPage') + 9) == document.location.href) ||
+     cookie.substring(cookie.indexOf('lastPage') + 9, cookie.indexOf('; ', cookie.indexOf('lastPage') + 9)) == document.location.href
+  ) {
 		return true;
 	} else {
 		return false;

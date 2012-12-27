@@ -3,7 +3,7 @@
 
 
   <?php }  else { header("X-Title: " . $site->title() . " &raquo; " . $page->title()); } ?>
-  <div class="body-content">
+  <div class="body-content selectable">
 
     <article>
       <h2><?php echo html($page->title()) ?></h2>
