@@ -77,6 +77,9 @@ function loadContent (url, pushCurrentState) {
         
         // Scroll to the top of the post for better reading experience
         scrollTopOfPost();
+
+        // set a cookie to remember not to scroll again when reloading
+        setCookie();
       }, 300);
     }
 
@@ -242,11 +245,30 @@ function areUrlsEqual(url1, url2) {
 }
 
 // Scroll to the top of the post for better reading experience
-function scrollTopOfPost() {
+function scrollTopOfPost () {
+	if(hasPageRefreshed()) {
+		return;
+	}
+	
   var $postTop = $('#post-top');
   if($postTop.length === 1) {
     $('html, body').delay(200).animate({ scrollTop: $postTop.offset().top}, 500);
   }
+}
+
+// Set a cookie for the current URL to prevent scrolling when refreshing
+function setCookie () {
+	document.cookie = 'lastPage=' + document.location.href;
+}
+
+// Check if page has been refreshed
+function hasPageRefreshed () {
+	var cookie = document.cookie;
+	if(!cookie || cookie.indexOf('lastPage') === -1 || cookie.substring(cookie.indexOf('lastPage') + 9, cookie.indexOf('; ', cookie.indexOf('lastPage') + 9)) == document.location.href) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 // the bootstrap method, should show first quote
@@ -269,6 +291,9 @@ function init () {
   
   // Scroll to the top of the post for better reading experience
   scrollTopOfPost();
+  
+  // Set a cookie for the current page to check if page refreshed
+  setCookie();
 }
 
 // run the bootstrap initializer when dom is ready
