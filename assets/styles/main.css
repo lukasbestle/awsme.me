@@ -55,7 +55,7 @@ a {
 }
 
   a:hover {
-    color: white;
+    color: rgba(255,255,255,1);
     border-bottom: 1px dotted white;
   }
 
