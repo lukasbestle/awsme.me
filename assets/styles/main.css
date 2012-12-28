@@ -47,11 +47,15 @@ body  {
 
 a {
   text-decoration: none;
-  color: rgba(255,255,255,.8);
+  color: rgba(255,255,255,.7);
+	-webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
+  transition: color 0.2s linear;
 }
 
   a:hover {
-    color: rgba(255,255,255,1.0);
+    color: white;
     border-bottom: 1px dotted white;
   }
 
