@@ -4,6 +4,16 @@
  * Version: 1.0
  */
 
+/******************************** CSS3 Animations ********************************/
+@import url("animation.css");
+
+/******************************** Typography ********************************/
+@import url("typography.css");
+
+/******************************** CSS Resets ********************************/
+@import url("reset.css");
+
+
 * {
 	user-select: none;
 	-webkit-user-select: none;
@@ -141,6 +151,7 @@ header  {
 
 .scribble-date {
   position: absolute;
+  font-weight: 400;
   margin: 10px 0 0 -85px;
   color: rgba(255,255,255,0.66);
 
@@ -179,7 +190,7 @@ header  {
 
   .post p {
     font-weight: 300;
-    font-family: "Proxima Nova", "proxima-nova" ,sans-serif;
+    font-family: "proxima-nova", sans-serif;
     font-size: 19px;
     line-height: 27px;
     color: rgba(255,255,255,.5);
@@ -267,6 +278,24 @@ header  {
   margin-top: -105px;
 }
 
+/* Firefox Only*/
+@-moz-document url-prefix() {
+  .button,
+  .scribbles .scribble,
+  .scribble-date,
+  .post h1,
+  .post h3,
+  .tweet-post,
+  .contributors,
+  .footer  {
+    font-weight: 200;
+  }
+
+  .post p {
+    font-weight: 100;
+  }
+
+}
 
 /* Media Queries */
 @media (min-width: 891px) {

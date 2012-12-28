@@ -21,7 +21,10 @@ var initialUrl = document.location.href;
 var firstPopState = true;
 
 // cache the site URL
+if (!window.location.origin) window.location.origin = window.location.protocol+"//"+window.location.host;
 var siteURL = window.location.origin.toString();
+
+
 
 // bootstrap for ajaxified internal links
 function initInternalLinks () {

@@ -16,7 +16,7 @@
 
   <link rel="alternate" type="application/rss+xml" href="<?php echo url('feed') ?>" title="The Thought of Timothy, scribbled in pixels." />
 
-  <?php echo css('assets/styles/styles.css') ?>
+  <?php echo css('assets/styles/main.css') ?>
 
 </head>
 
@@ -24,8 +24,8 @@
 
   <div class="page-wrapper">
 
-    <header>
-      <a href="<?php echo url() ?>" class="avatar animate fadeIn"></a>
+    <header class="animate fadeIn">
+      <a href="<?php echo url() ?>" class="avatar"></a>
       <h1 class="phrase animate hidden"></h1>
       <div class="clearfix"></div>
     </header>
