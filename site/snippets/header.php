@@ -7,8 +7,6 @@
   <meta name="description" content="<?php echo html($site->description()) ?>" />
   <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
- 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <script type="text/javascript" src="http://use.typekit.net/lbi2wlw.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
