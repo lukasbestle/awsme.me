@@ -1,5 +1,4 @@
 var phrases = [
-  'I wish you all a<br/><strong>Merry Christmas.</strong>',
   'I go by the name<br/><strong>Timothy.</strong>',
   'I design things at<br/><strong><a target="_blank" href="http://6wunderkinder.com">6Wunderkinder</a>.</strong>',
   'I shoot pixels<br/>on <strong><a target="_blank" class="dribbble" href="http://dribbble.com/iam_timm">Dribbble</a>.</strong>',
